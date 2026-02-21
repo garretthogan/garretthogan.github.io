@@ -1,12 +1,41 @@
-body {
+body.tui {
   margin: 0;
   min-height: 100vh;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.75rem;
 }
 
-ul {
+.name-title {
+  width: min(90vw, 420px);
+  height: auto;
+  margin: 0;
+}
+
+.name-title__text {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  fill: none;
+  stroke: var(--tui-cyan);
+  stroke-width: 1;
+  font-family: var(--tui-font);
+}
+
+.link-stacks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--tui-gap-xl, 24px);
+  align-items: flex-start;
+  border: 1px solid var(--tui-pink);
+  padding: 24px;
+}
+
+.link-stacks .stack {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -18,4 +47,11 @@ ul {
 li a {
   display: block;
   padding: var(--tui-pad-2, 10px) var(--tui-pad-3, 12px);
+}
+
+.email {
+  font-size: var(--tui-font-size-sm, 0.75rem);
+  color: var(--tui-pink);
+  margin-top: 0.5rem;
+  text-decoration: none;
 }
