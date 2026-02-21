@@ -4,19 +4,31 @@ body.tui {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
 }
 
 .name-title {
-  width: min(90vw, 420px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 380px;
   height: auto;
   margin: 0;
+  padding: 12px 1rem 1rem 1rem;
 }
 
 .name-title__text {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 700;
   letter-spacing: 0.08em;
   fill: none;
@@ -52,6 +64,7 @@ li a {
 .email {
   font-size: var(--tui-font-size-sm, 0.75rem);
   color: var(--tui-pink);
-  margin-top: 0.5rem;
+  margin-top: auto;
+  padding-bottom: 1rem;
   text-decoration: none;
 }
