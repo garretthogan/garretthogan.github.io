@@ -6,7 +6,8 @@ import { ChromaticAberrationShader } from './shaders/ChromaticAberrationShader.j
 
 const HDRI_PATH = '/hdri.jpg';
 
-export function initSpaceScene(container) {
+export function initSpaceScene(container, options = {}) {
+  const { onReady } = options;
   const width = container.clientWidth;
   const height = container.clientHeight;
 
@@ -38,6 +39,10 @@ export function initSpaceScene(container) {
     scene.background = new THREE.Color(0x020208);
   }
 
+  function skyboxReady() {
+    onReady?.();
+  }
+
   const textureLoader = new THREE.TextureLoader();
   textureLoader.load(
     HDRI_PATH,
@@ -49,6 +54,7 @@ export function initSpaceScene(container) {
       scene.background = envMap;
       scene.environment = envMap;
       pmremGenerator.dispose();
+      skyboxReady();
     },
     undefined,
     () => {
@@ -56,6 +62,7 @@ export function initSpaceScene(container) {
         'Space scene: skybox not loaded. Put an equirectangular image at public/hdri.jpg'
       );
       setFallbackBackground();
+      skyboxReady();
     }
   );
 
