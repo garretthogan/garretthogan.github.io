@@ -6,6 +6,29 @@ body.tui {
   flex-direction: column;
   align-items: center;
   position: relative;
+  overflow-x: hidden;
+}
+
+.scene-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.scene-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-content {
@@ -38,22 +61,79 @@ body.tui {
 }
 
 .link-stacks {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: var(--tui-gap-xl, 24px);
   align-items: flex-start;
-  border: 1px solid var(--tui-pink);
   padding: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--tui-pink);
+  /* Dispersion-style chromatic fringe (RGB separation like KHR_materials_dispersion) */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    -3px 0 16px -4px rgba(255, 80, 100, 0.45),
+    3px 0 16px -4px rgba(80, 180, 255, 0.45),
+    0 -3px 16px -4px rgba(120, 255, 120, 0.35),
+    0 3px 16px -4px rgba(200, 120, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glass layer: clear transmission + blur (like dispersion example glass) */
+.link-stacks__glass {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.002);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  z-index: 0;
 }
 
 .link-stacks .stack {
+  position: relative;
+  z-index: 1;
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: var(--tui-gap-lg, 12px);
+}
+
+/* Prismatic dispersion border (light-splitting edge like dispersion glass) */
+.link-stacks::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 60, 80, 0.6),
+    rgba(255, 180, 60, 0.5),
+    rgba(100, 255, 120, 0.55),
+    rgba(60, 180, 255, 0.6),
+    rgba(180, 80, 255, 0.55),
+    rgba(255, 60, 80, 0.6)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.link-stacks a {
+  color: var(--tui-pink);
+  transition: color 0.2s ease;
+}
+
+.link-stacks a:hover {
+  color: var(--tui-cyan);
 }
 
 li a {

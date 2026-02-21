@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="/src/style.css">
   </head>
   <body class="tui">
-
+    <div id="scene-container" class="scene-container" aria-hidden="true"></div>
+    <div class="page-content">
     <main class="main-content">
     <nav class="link-stacks">
+      <div class="link-stacks__glass" aria-hidden="true"></div>
       <ul class="stack stack--3">
         <li><a href="https://garretthogan.github.io/art-grid/">svg-generator</a></li>
         <li><a href="https://garretthogan.github.io/brush-editor/">brush-editor</a></li>
@@ -27,5 +29,7 @@
     </nav>
     </main>
     <a href="mailto:ragtagthrone@gmail.com" class="email">ragtagthrone@gmail.com</a>
+    </div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
