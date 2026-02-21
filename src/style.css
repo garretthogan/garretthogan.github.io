@@ -48,6 +48,10 @@ body.tui {
   z-index: 0;
 }
 
+.scene-container--no-scene {
+  background: var(--tui-bg, #000);
+}
+
 .scene-container canvas {
   display: block;
   width: 100%;
