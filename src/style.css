@@ -102,9 +102,10 @@ body.tui {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: var(--tui-gap-xl, 24px);
+  gap: 128px;
   align-items: flex-start;
-  padding: 24px;
+  padding: 24px 40px;
+  min-width: min(90vw, 520px);
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--tui-pink);
@@ -128,6 +129,24 @@ body.tui {
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
   z-index: 0;
+}
+
+.link-stacks__category {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--tui-gap-md, 8px);
+}
+
+.link-stacks .link-stacks__heading {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tui-fg, #fff);
+  padding: 0 var(--tui-pad-3, 12px);
 }
 
 .link-stacks .stack {
