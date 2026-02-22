@@ -20,7 +20,17 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
     steps:
+      - name: Check required variables
+        run: |
+          if [ -z "$AWS_S3_BUCKET" ]; then
+            echo "::error::AWS_S3_BUCKET is not set. Add it in Settings → Secrets and variables → Actions → Variables (name exactly: AWS_S3_BUCKET, value: your bucket name e.g. www.ragtagthrone.com)"
+            exit 1
+          fi
+          echo "Bucket: $AWS_S3_BUCKET"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -44,7 +54,7 @@ jobs:
 
       - name: Sync to S3
         run: |
-          aws s3 sync dist/ s3://${{ vars.AWS_S3_BUCKET }}/ --delete
+          aws s3 sync dist/ s3://$AWS_S3_BUCKET/ --delete
 
       - name: Invalidate CloudFront cache
         if: vars.AWS_CLOUDFRONT_DISTRIBUTION_ID != ''
