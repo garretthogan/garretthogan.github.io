@@ -1,7 +1,8 @@
 # Deploys dist/ to S3 for https://www.ragtagthrone.com (behind CloudFront).
-# Required: GitHub repo secret AWS_ROLE_ARN (IAM role for OIDC).
-# Required: Repo variables AWS_S3_BUCKET (e.g. www.ragtagthrone.com), AWS_REGION (e.g. us-east-1).
-# Optional: AWS_CLOUDFRONT_DISTRIBUTION_ID for cache invalidation after deploy.
+# Required SECRET: AWS_ROLE_ARN (IAM role ARN).
+# Required VARIABLES: AWS_S3_BUCKET (e.g. www.ragtagthrone.com), AWS_REGION (e.g. us-east-1).
+# Optional VARIABLE: AWS_CLOUDFRONT_DISTRIBUTION_ID for cache invalidation.
+# (AWS_S3_BUCKET can also be set as a secret if repo variables don't work in your setup.)
 name: Deploy to S3 (ragtagthrone.com)
 
 on:
@@ -21,12 +22,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+      AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET || secrets.AWS_S3_BUCKET }}
     steps:
       - name: Check required variables
         run: |
           if [ -z "$AWS_S3_BUCKET" ]; then
-            echo "::error::AWS_S3_BUCKET is not set. Add it in Settings → Secrets and variables → Actions → Variables (name exactly: AWS_S3_BUCKET, value: your bucket name e.g. www.ragtagthrone.com)"
+            echo "::error::AWS_S3_BUCKET is not set. Add it in Settings → Secrets and variables → Actions → Variables (name: AWS_S3_BUCKET, value: e.g. www.ragtagthrone.com). If variables don't work, add it as a Secret instead."
             exit 1
           fi
           echo "Bucket: $AWS_S3_BUCKET"
