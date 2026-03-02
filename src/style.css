@@ -102,7 +102,7 @@ body.tui {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 128px;
+  gap: 64px;
   align-items: flex-start;
   padding: 24px 40px;
   min-width: min(90vw, 520px);
@@ -195,6 +195,26 @@ body.tui {
 li a {
   display: block;
   padding: var(--tui-pad-2, 10px) var(--tui-pad-3, 12px);
+}
+
+.page-footer {
+  margin-top: auto;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-footer .email {
+  font-size: var(--tui-font-size-sm, 0.75rem);
+  color: var(--tui-pink);
+  text-decoration: none;
+}
+
+.page-footer .email:hover {
+  color: var(--tui-cyan);
 }
 
 .email {

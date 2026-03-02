@@ -1,0 +1,206 @@
+.portfolio-page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 1rem 3rem;
+  box-sizing: border-box;
+}
+
+.portfolio-actions {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: var(--tui-bg, #000);
+  border-bottom: 1px solid var(--tui-line, rgba(255, 255, 255, 0.16));
+  flex-wrap: wrap;
+}
+
+.portfolio-back {
+  font-size: var(--tui-font-size-sm, 0.875rem);
+  color: var(--tui-pink);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.portfolio-back:hover {
+  color: var(--tui-cyan);
+}
+
+.portfolio-export-pdf {
+  font-family: inherit;
+  font-size: var(--tui-font-size-sm, 0.875rem);
+  padding: 0.4rem 0.75rem;
+  color: var(--tui-pink);
+  background: transparent;
+  border: 1px solid var(--tui-pink);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.portfolio-export-pdf:hover:not(:disabled) {
+  color: var(--tui-cyan);
+  border-color: var(--tui-cyan);
+}
+
+.portfolio-export-pdf:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.portfolio-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--tui-pink);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    -3px 0 16px -4px rgba(255, 80, 100, 0.35),
+    3px 0 16px -4px rgba(80, 180, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+.portfolio-loading {
+  color: var(--tui-fg, #fff);
+  opacity: 0.8;
+}
+
+.portfolio-content h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--tui-cyan);
+}
+
+.portfolio-content h2 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--tui-fg, #fff);
+  border-bottom: 1px solid var(--tui-line, rgba(255, 255, 255, 0.16));
+  padding-bottom: 0.25rem;
+}
+
+.portfolio-content h3 {
+  margin: 1.25rem 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--tui-fg, #fff);
+}
+
+.portfolio-content h4 {
+  margin: 1rem 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--tui-fg, #fff);
+}
+
+.portfolio-content p {
+  margin: 0.5rem 0;
+  line-height: 1.55;
+  color: var(--tui-fg, #fff);
+}
+
+.portfolio-content ul {
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+  line-height: 1.5;
+  color: var(--tui-fg, #fff);
+}
+
+.portfolio-content li {
+  margin: 0.25rem 0;
+}
+
+.portfolio-content a {
+  color: var(--tui-pink);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.portfolio-content a:hover {
+  color: var(--tui-cyan);
+}
+
+.portfolio-content strong {
+  color: var(--tui-fg, #fff);
+  font-weight: 600;
+}
+
+.portfolio-content hr {
+  margin: 1.25rem 0;
+  border: none;
+  border-top: 1px solid var(--tui-line, rgba(255, 255, 255, 0.16));
+}
+
+.portfolio-content [aria-busy="true"] .portfolio-loading {
+  display: block;
+}
+
+.portfolio-content [aria-busy="false"] .portfolio-loading {
+  display: none;
+}
+
+/* PDF export: temporarily style the real content white + black for capture */
+body.pdf-exporting .portfolio-content.pdf-export-content {
+  background: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ddd !important;
+  box-shadow: none !important;
+  padding: 0.5rem 0.75rem 80px !important;
+}
+
+body.pdf-exporting .portfolio-content.pdf-export-content h1,
+body.pdf-exporting .portfolio-content.pdf-export-content h2,
+body.pdf-exporting .portfolio-content.pdf-export-content h3,
+body.pdf-exporting .portfolio-content.pdf-export-content h4,
+body.pdf-exporting .portfolio-content.pdf-export-content p,
+body.pdf-exporting .portfolio-content.pdf-export-content li,
+body.pdf-exporting .portfolio-content.pdf-export-content strong {
+  color: #000 !important;
+}
+
+body.pdf-exporting .portfolio-content.pdf-export-content a {
+  color: #000 !important;
+  text-decoration: underline;
+}
+
+body.pdf-exporting .portfolio-content.pdf-export-content hr {
+  border-top-color: #ccc !important;
+}
+
+body.pdf-exporting .portfolio-content.pdf-export-content h2 {
+  border-bottom-color: #ccc !important;
+}
+
+/* Keep section headers with their content (no break right after h2/h3/h4) */
+body.pdf-exporting .portfolio-content.pdf-export-content h2,
+body.pdf-exporting .portfolio-content.pdf-export-content h3,
+body.pdf-exporting .portfolio-content.pdf-export-content h4 {
+  page-break-after: avoid;
+}
+
+body.pdf-exporting .portfolio-content.pdf-export-content h1 {
+  page-break-after: avoid;
+}
+
+/* Each section (heading + body) stays on one page */
+body.pdf-exporting .portfolio-content .pdf-section {
+  page-break-inside: avoid;
+}

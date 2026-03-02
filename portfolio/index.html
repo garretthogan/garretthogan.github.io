@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Garrett Hogan</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://garretthogan.github.io/design-system/design-system.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/portfolio.css">
+  </head>
+  <body class="tui">
+    <div id="pdf-loading-overlay" class="loading-overlay loading-overlay--hidden" aria-live="polite" aria-label="Exporting PDF">
+      <div class="loading-spinner"></div>
+    </div>
+    <div class="portfolio-actions">
+      <a href="/" class="portfolio-back">← Back</a>
+      <button type="button" id="portfolio-export-pdf" class="portfolio-export-pdf" disabled>Export PDF</button>
+    </div>
+    <div class="portfolio-page">
+      <article id="portfolio-content" class="portfolio-content" aria-busy="true" aria-label="Resume">
+        <div class="portfolio-loading">Loading…</div>
+      </article>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
+    <script type="module" src="/src/portfolio.js"></script>
+  </body>
+</html>
