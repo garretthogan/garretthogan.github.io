@@ -1,34 +1,23 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import fs from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-/** Serve portfolio/index.html when path is /portfolio or /portfolio/ (dev + preview). */
-function portfolioFallback() {
+/** SPA fallback: /portfolio and /portfolio/ serve index.html so client-side router can handle. */
+function spaFallback() {
   return {
-    name: 'portfolio-fallback',
+    name: 'spa-fallback',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split('?')[0] ?? '';
-        if (url === '/portfolio' || url === '/portfolio/') {
-          const portfolioHtml = path.join(__dirname, 'portfolio', 'index.html');
-          if (fs.existsSync(portfolioHtml)) {
-            req.url = '/portfolio/index.html';
-          }
-        }
+        if (url === '/portfolio' || url === '/portfolio/') req.url = '/';
         next();
       });
     },
     configurePreviewServer(server) {
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split('?')[0] ?? '';
-        if (url === '/portfolio' || url === '/portfolio/') {
-          const portfolioHtml = path.join(__dirname, 'dist', 'portfolio', 'index.html');
-          if (fs.existsSync(portfolioHtml)) {
-            req.url = '/portfolio/index.html';
-          }
-        }
+        if (url === '/portfolio' || url === '/portfolio/') req.url = '/';
         next();
       });
     },
@@ -36,13 +25,10 @@ function portfolioFallback() {
 }
 
 export default {
-  plugins: [portfolioFallback()],
+  plugins: [spaFallback()],
   build: {
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-        portfolio: path.resolve(__dirname, 'portfolio/index.html'),
-      },
+      input: path.resolve(__dirname, 'index.html'),
     },
   },
 };

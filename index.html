@@ -7,13 +7,14 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://garretthogan.github.io/design-system/design-system.css">
     <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/portfolio.css">
   </head>
   <body class="tui">
     <div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading">
       <div class="loading-spinner"></div>
     </div>
     <div id="scene-container" class="scene-container" aria-hidden="true"></div>
-    <div class="page-content">
+    <div id="view-home" class="page-content">
     <main class="main-content">
     <nav class="link-stacks">
       <div class="link-stacks__glass" aria-hidden="true"></div>
@@ -32,7 +33,7 @@
           <li><a href="https://garretthogan.github.io/art-grid/" target="_blank" rel="noopener noreferrer">svg-generator</a></li>
           <li><a href="https://garretthogan.github.io/brush-editor/" target="_blank" rel="noopener noreferrer">brush-editor</a></li>
           <li><a href="https://garretthogan.github.io/level-generator/" target="_blank" rel="noopener noreferrer">level-generator</a></li>
-          <li><a href="https://ragtagthrone.com/design-system/" rel="noopener noreferrer">design-system</a></li>
+          <li><a href="https://garretthogan.github.io/design-system/" rel="noopener noreferrer">design-system</a></li>
         </ul>
       </section>
     </nav>
@@ -42,6 +43,22 @@
       <a href="mailto:ragtagthrone@gmail.com" class="email" target="_blank" rel="noopener noreferrer">ragtagthrone@gmail.com</a>
     </div>
     </div>
+    <div id="view-portfolio" class="view-portfolio" hidden>
+      <div id="pdf-loading-overlay" class="loading-overlay loading-overlay--hidden" aria-live="polite" aria-label="Exporting PDF">
+        <div class="loading-spinner"></div>
+      </div>
+      <div class="portfolio-actions">
+        <a href="/" class="portfolio-back">← Back</a>
+        <button type="button" id="portfolio-export-pdf" class="portfolio-export-pdf" disabled>Export PDF</button>
+      </div>
+      <div class="portfolio-page">
+        <article id="portfolio-content" class="portfolio-content" aria-busy="true" aria-label="Resume">
+          <div class="portfolio-loading">Loading…</div>
+        </article>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

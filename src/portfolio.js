@@ -1,8 +1,8 @@
-const contentEl = document.getElementById('portfolio-content');
-const exportBtn = document.getElementById('portfolio-export-pdf');
 const resumeUrl = '/resume.md';
 
-async function loadPortfolio() {
+export async function initPortfolio() {
+  const contentEl = document.getElementById('portfolio-content');
+  const exportBtn = document.getElementById('portfolio-export-pdf');
   if (!contentEl) return;
   try {
     const res = await fetch(resumeUrl);
@@ -15,9 +15,10 @@ async function loadPortfolio() {
     contentEl.setAttribute('aria-busy', 'false');
     contentEl.innerHTML = `<p class="portfolio-error">Could not load resume. (${err.message})</p>`;
   }
+  if (exportBtn) exportBtn.onclick = () => exportPdf(contentEl, exportBtn);
 }
 
-function exportPdf() {
+function exportPdf(contentEl, exportBtn) {
   if (!contentEl || !window.html2pdf) return;
   const loadingOverlay = document.getElementById('pdf-loading-overlay');
   if (loadingOverlay) {
@@ -93,6 +94,3 @@ function exportPdf() {
   requestAnimationFrame(() => requestAnimationFrame(runExport));
 }
 
-if (exportBtn) exportBtn.addEventListener('click', exportPdf);
-
-loadPortfolio();
