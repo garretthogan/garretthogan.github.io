@@ -126,7 +126,7 @@ https://garretthogan.github.io/design-system/
 
 I am personally inspired by the retro hacker terminal aesthetic and I wanted my personal projects to share a common design theme. I built this to capture my own design tastes and to make it easy to bring that aesthetic into any project that I spin up. This is typically a default dep in any personal project.
 
-- Single css file for ease of integration
+- Single css file for easy integration
 - Very lightweight and relatively unopinionated.
 
 Tech: CSS, bash for bundling the static site.
