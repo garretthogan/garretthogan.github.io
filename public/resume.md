@@ -135,7 +135,7 @@ Tech: CSS, bash for bundling the static site.
 
 ## Technical Skills
 
-**Frontend:** React, Vue, Angular, JavaScript (ES6+), TypeScript  
+**Frontend:** React, Vue, Angular, JavaScript, TypeScript  
 **Graphics & Interactive:** Three.js, WebGL, Canvas APIs  
 **Game Engines:** Unity, Unreal Engine  
 **Architecture:** Component systems, design systems, state management, modular UI architecture  
