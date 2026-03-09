@@ -8,7 +8,7 @@ const HDRI_PATH = '/hdri.jpg';
 const SKYBOX_LOAD_TIMEOUT_MS = 15000;
 
 export function initSpaceScene(container, options = {}) {
-  const { onReady } = options;
+  const { onReady, useSimpleRenderer = false } = options;
   let skyboxReadyCalled = false;
   function skyboxReady() {
     if (skyboxReadyCalled) return;
@@ -38,13 +38,15 @@ export function initSpaceScene(container, options = {}) {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     container.appendChild(renderer.domElement);
 
-    composer = new EffectComposer(renderer);
-    composer.setSize(width, height);
-    composer.setPixelRatio(renderer.getPixelRatio());
-    composer.addPass(new RenderPass(scene, camera));
-    chromaticPass = new ShaderPass(ChromaticAberrationShader);
-    chromaticPass.renderToScreen = true;
-    composer.addPass(chromaticPass);
+    if (!useSimpleRenderer) {
+      composer = new EffectComposer(renderer);
+      composer.setSize(width, height);
+      composer.setPixelRatio(renderer.getPixelRatio());
+      composer.addPass(new RenderPass(scene, camera));
+      chromaticPass = new ShaderPass(ChromaticAberrationShader);
+      chromaticPass.renderToScreen = true;
+      composer.addPass(chromaticPass);
+    }
 
     pmremGenerator = new THREE.PMREMGenerator(renderer);
     pmremGenerator.compileEquirectangularShader();
@@ -94,7 +96,8 @@ export function initSpaceScene(container, options = {}) {
       camera.position.y = Math.sin(t * verticalSpeed) * heightAmplitude;
       camera.lookAt(0, 0, 0);
       camera.updateMatrixWorld();
-      composer.render();
+      if (composer) composer.render();
+      else renderer.render(scene, camera);
     }
     animate();
 
@@ -104,8 +107,10 @@ export function initSpaceScene(container, options = {}) {
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
-      composer.setSize(w, h);
-      composer.setPixelRatio(renderer.getPixelRatio());
+      if (composer) {
+        composer.setSize(w, h);
+        composer.setPixelRatio(renderer.getPixelRatio());
+      }
     }
     window.addEventListener('resize', onResize);
 

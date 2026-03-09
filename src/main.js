@@ -55,10 +55,13 @@ function isMobile() {
 }
 
 const container = document.getElementById('scene-container');
-if (container && !isMobile()) {
-  initSpaceScene(container, { onReady: dismissLoading });
+if (container) {
+  initSpaceScene(container, {
+    onReady: dismissLoading,
+    /** Use direct renderer (no post-processing) on mobile for better compatibility. */
+    useSimpleRenderer: isMobile(),
+  });
 } else {
-  if (container) container.classList.add('scene-container--no-scene');
   dismissLoading();
 }
 
