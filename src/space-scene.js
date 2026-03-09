@@ -16,6 +16,11 @@ export function initSpaceScene(container, options = {}) {
     onReady?.();
   }
 
+  if (container.querySelector('canvas')) {
+    skyboxReady();
+    return () => {};
+  }
+
   const width = container.clientWidth;
   const height = container.clientHeight;
 
@@ -30,9 +35,17 @@ export function initSpaceScene(container, options = {}) {
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
     camera.position.set(0, 0, 5);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, failIfMajorPerformanceCaveat: false });
+    const pixelRatio = useSimpleRenderer
+      ? Math.min(window.devicePixelRatio, 1.5)
+      : Math.min(window.devicePixelRatio, 2);
+    renderer = new THREE.WebGLRenderer({
+      antialias: !useSimpleRenderer,
+      alpha: true,
+      failIfMajorPerformanceCaveat: false,
+      preserveDrawingBuffer: useSimpleRenderer,
+    });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(pixelRatio);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
