@@ -5,6 +5,8 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { ChromaticAberrationShader } from './shaders/ChromaticAberrationShader.js';
 
 const HDRI_PATH = '/hdri.jpg';
+/** Optional smaller/compressed skybox for mobile; reduces memory and can prevent crashes. Use e.g. 512×256 or 1024×512. */
+const HDRI_MOBILE_PATH = '/hdri-mobile.jpg';
 const SKYBOX_LOAD_TIMEOUT_MS = 15000;
 const MOBILE_SKIP_KEY = 'space-scene-mobile-skip';
 
@@ -93,8 +95,9 @@ export function initSpaceScene(container, options = {}) {
     }, SKYBOX_LOAD_TIMEOUT_MS);
 
     const textureLoader = new THREE.TextureLoader();
+    const hdriPath = useSimpleRenderer ? HDRI_MOBILE_PATH : HDRI_PATH;
     textureLoader.load(
-      HDRI_PATH,
+      hdriPath,
       (texture) => {
         clearTimeout(loadTimeout);
         try {
@@ -113,8 +116,34 @@ export function initSpaceScene(container, options = {}) {
       undefined,
       () => {
         clearTimeout(loadTimeout);
-        setFallbackBackground();
-        skyboxReady();
+        if (useSimpleRenderer && hdriPath === HDRI_MOBILE_PATH) {
+          textureLoader.load(
+            HDRI_PATH,
+            (texture) => {
+              clearTimeout(loadTimeout);
+              try {
+                texture.mapping = THREE.EquirectangularReflectionMapping;
+                texture.colorSpace = THREE.SRGBColorSpace;
+                const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+                texture.dispose();
+                scene.background = envMap;
+                scene.environment = envMap;
+                pmremGenerator.dispose();
+              } catch (e) {
+                setFallbackBackground();
+              }
+              skyboxReady();
+            },
+            undefined,
+            () => {
+              setFallbackBackground();
+              skyboxReady();
+            }
+          );
+        } else {
+          setFallbackBackground();
+          skyboxReady();
+        }
       }
     );
 

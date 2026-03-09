@@ -7,9 +7,11 @@
     "dev": "vite",
     "dev:network": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "compress-hdri-mobile": "node scripts/compress-hdri-mobile.js"
   },
   "devDependencies": {
+    "sharp": "^0.33.5",
     "vite": "^7.3.1"
   },
   "dependencies": {
