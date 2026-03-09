@@ -55,13 +55,30 @@ function isMobile() {
 }
 
 const container = document.getElementById('scene-container');
-if (container) {
-  initSpaceScene(container, {
-    onReady: dismissLoading,
-    useSimpleRenderer: isMobile(),
-  });
+const mobile = isMobile();
+
+function startScene() {
+  if (container) {
+    initSpaceScene(container, {
+      onReady: dismissLoading,
+      useSimpleRenderer: mobile,
+    });
+  } else {
+    dismissLoading();
+  }
+}
+
+if (container && mobile) {
+  const deferred = () => {
+    startScene();
+  };
+  if (typeof requestIdleCallback !== 'undefined') {
+    requestIdleCallback(deferred, { timeout: 400 });
+  } else {
+    setTimeout(deferred, 300);
+  }
 } else {
-  dismissLoading();
+  startScene();
 }
 
 render();

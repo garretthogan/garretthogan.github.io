@@ -6,6 +6,9 @@ import { ChromaticAberrationShader } from './shaders/ChromaticAberrationShader.j
 
 const HDRI_PATH = '/hdri.jpg';
 const SKYBOX_LOAD_TIMEOUT_MS = 15000;
+const MOBILE_SKIP_KEY = 'space-scene-mobile-skip';
+
+let spaceSceneInitAttempted = false;
 
 export function initSpaceScene(container, options = {}) {
   const { onReady, useSimpleRenderer = false } = options;
@@ -16,7 +19,19 @@ export function initSpaceScene(container, options = {}) {
     onReady?.();
   }
 
+  if (spaceSceneInitAttempted) {
+    skyboxReady();
+    return () => {};
+  }
+  spaceSceneInitAttempted = true;
+
   if (container.querySelector('canvas')) {
+    skyboxReady();
+    return () => {};
+  }
+
+  if (useSimpleRenderer && typeof sessionStorage !== 'undefined' && sessionStorage.getItem(MOBILE_SKIP_KEY)) {
+    container.classList.add('scene-container--no-scene');
     skyboxReady();
     return () => {};
   }
@@ -29,6 +44,10 @@ export function initSpaceScene(container, options = {}) {
   let chromaticPass;
   let pmremGenerator;
   let animateId;
+
+  if (useSimpleRenderer && typeof sessionStorage !== 'undefined') {
+    sessionStorage.setItem(MOBILE_SKIP_KEY, '1');
+  }
 
   try {
     const scene = new THREE.Scene();
@@ -78,13 +97,17 @@ export function initSpaceScene(container, options = {}) {
       HDRI_PATH,
       (texture) => {
         clearTimeout(loadTimeout);
-        texture.mapping = THREE.EquirectangularReflectionMapping;
-        texture.colorSpace = THREE.SRGBColorSpace;
-        const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-        texture.dispose();
-        scene.background = envMap;
-        scene.environment = envMap;
-        pmremGenerator.dispose();
+        try {
+          texture.mapping = THREE.EquirectangularReflectionMapping;
+          texture.colorSpace = THREE.SRGBColorSpace;
+          const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+          texture.dispose();
+          scene.background = envMap;
+          scene.environment = envMap;
+          pmremGenerator.dispose();
+        } catch (e) {
+          setFallbackBackground();
+        }
         skyboxReady();
       },
       undefined,
@@ -100,6 +123,7 @@ export function initSpaceScene(container, options = {}) {
     const heightAmplitude = 2;
     const orbitSpeed = 0.08;
     const verticalSpeed = 0.03;
+    let mobileSkipCleared = false;
 
     function animate() {
       animateId = requestAnimationFrame(animate);
@@ -109,8 +133,18 @@ export function initSpaceScene(container, options = {}) {
       camera.position.y = Math.sin(t * verticalSpeed) * heightAmplitude;
       camera.lookAt(0, 0, 0);
       camera.updateMatrixWorld();
-      if (composer) composer.render();
-      else renderer.render(scene, camera);
+      try {
+        if (composer) composer.render();
+        else renderer.render(scene, camera);
+        if (useSimpleRenderer && !mobileSkipCleared && typeof sessionStorage !== 'undefined') {
+          mobileSkipCleared = true;
+          sessionStorage.removeItem(MOBILE_SKIP_KEY);
+        }
+      } catch (e) {
+        if (animateId != null) cancelAnimationFrame(animateId);
+        animateId = null;
+        setFallbackBackground();
+      }
     }
     animate();
 
