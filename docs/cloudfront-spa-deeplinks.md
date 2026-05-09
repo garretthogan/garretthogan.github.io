@@ -1,8 +1,10 @@
-# CloudFront: enable deep links (e.g. /portfolio) for the SPA
+# CloudFront: SPA and deep links (404/403 → index.html)
 
-When someone opens or refreshes a URL like `https://yoursite.com/portfolio`, the browser requests `/portfolio` from the server. S3 has no object at that path, so it returns **403 Access Denied**, and the user sees an error instead of the app.
+When someone opens a URL path that does not match a real object in S3 (for example a future client-side route), the origin may return **403** or **404**. Without custom error responses, the user sees an error instead of the app.
 
-Fix: tell CloudFront to serve your **index.html** whenever the origin returns 403 or 404. The SPA loads, the client-side router reads the pathname, and shows the correct view. The URL stays `/portfolio`.
+Fix: tell CloudFront to serve your **index.html** whenever the origin returns 403 or 404 so the SPA can load.
+
+**Note:** `https://yoursite.com/portfolio` still works if you ship a `portfolio/index.html` under `public/` (copied to `dist/`) that redirects to `/`. The main app lives at `/` only.
 
 ## Steps (AWS Console)
 
@@ -35,4 +37,4 @@ Save.
 4. (Optional) Invalidate the cache so the new behavior applies immediately:
    - **Invalidations** tab → **Create invalidation** → Object path: `/*`
 
-After this, requests to `/portfolio` (or any path that doesn’t exist in S3) will get your `index.html` with a 200 response. The app will load and the router will show the portfolio (or a 404 view) based on the path.
+After this, requests for missing paths get your `index.html` with a 200 response (optional: add static files under `public/` for paths that should redirect or return their own HTML).

@@ -6,139 +6,47 @@ ragtagthrone@gmail.com
 GitHub: https://github.com/garretthogan  
 Website: https://www.ragtagthrone.com/
 
----
-
-## Senior Software Engineer | Immersive Experience Developer
-
-Senior software engineer with 10+ years of experience building high-impact internal platforms, design tools, and interactive web applications. Specialized in frontend tools, WebGL experiences, and creative systems that combine engineering rigor with product velocity. Proven track record delivering tools that accelerate design iteration, improve operational visibility, and support large-scale ecommerce workflows.
-
-Strong background in React, real-time rendering (Three.js/WebGL), and cross-functional collaboration with designers, product, and business stakeholders.
-
----
-
 ## Professional Experience
 
-### Senior Software Engineer  
-**Nike — Portland, OR**  
-~10 Years
+**Senior / Lead Software Engineer — Nike 2015-2026**
 
-Designed and built internal platforms and creative tooling used across product, ecommerce, and operations teams.
+Built and supported internal tools across product launch operations, inventory allocation, digital commerce, design workflows, and emerging 3D configuration experiences. Integrated Nike inventory services, developed product lifecycle management tools, and built real-time dashboards to track products from allocation through checkout during high-heat launches.
 
-#### Key Contributions
+Delivered features, fixed bugs, reviewed code, improved performance, and provided direct user support across applications for colors, materials, graphics, apparel illustration, and shared consumer-facing components. Modernized legacy tooling by upgrading outdated Node/Vue stacks, removing deprecated dependencies, and improving developer workflows.
 
-- Delivered a frontend dashboard used to allocate inventory and monitor ecommerce transactions at scale.
-- Built and maintained interactive design tools enabling footwear and apparel teams to prototype and iterate on product concepts more rapidly.
-- Developed modular component systems to standardize UI patterns across internal platforms.
-- Partnered closely with designers, supply chain teams, and product managers to translate operational needs into performant web applications.
-- Improved iteration velocity for internal design workflows, reducing concept-to-market friction.
-- Led frontend architectural decisions and mentored engineers on performance, state management, and scalable UI patterns.
+Led technical contributions for material and color library experiences, including API integrations, filtering, sorting, collections, and web component integration strategy. Prototyped UE5-based CAD configurator workflows, built Okta authentication and Splunk analytics plugins for Unreal Engine, and helped deploy AI/prototype applications by integrating APIs and setting up CI pipelines for user testing.
 
-**Technologies:** React, Vue, Angular, JavaScript (ES6+), WebGL, Three.js, internal APIs, design systems
+## Personal Experience
 
----
+Built and shipped independent prototypes across games, creative tools, procedural generation, and real-time 3D workflows. Rapidly prototyped multiplayer VR and experimental game concepts for Global Game Jam projects, including Oculus SDK integration for multiplayer experiences.
 
-## Selected Projects (Public / Open Source)
+Developed a UE5 parkour FPS character system with wall running, sliding, and grappling mechanics to explore fast, expressive first-person movement. Built creative tooling for procedural abstract art generation using handmade Illustrator stamps, with SVG resolution scaling, multi-format export, and workspace transform controls to support faster design iteration.
 
-### Brush Editor 
-https://garretthogan.github.io/brush-editor/
+Created a procedural level generation workflow that enables rapid 2D layout iteration before validating spaces in a 3D preview, with GLB export for broad compatibility across tools and pipelines.
 
-A constructive solid geometry editor for web.
+## Projects
 
-It started as an experiment in procedural generation and rapid prototyping. I split the proc gen features out into their own tool and simplified the brush editor into a standard CSG editor that behaves like Hammer or Unreal Engine.
+### Games
 
-- Quickly prototype liminal spaces to connect set pieces like arenas, dungeons or interiors.
-- Export combined brushes into a single glb or keep them seperate for a WIP flow
-- Since it exports to GLB it is very easy to import the brushes into unity. unreal, godot, or other web apps.
+[Endless Zero](https://garretthogan.github.io/endless-zero/)
+An endless runner inspired by old school star fighter games like Star Fox. Built for the browser with three js.
 
-Tech: JavaScript, Three JS
+[Light Fighter](https://garretthogan.github.io/light-fighter/)
+A small fast paced roguelike inspired by games like megabonk and vampire survivors. Built for the browser with three js.
 
----
+[Roguelike Blackjack](https://garretthogan.github.io/blackjack-frontend/)
+A simple roguelike blackjack game inspired by Balatro. Built with React and javascript.
 
-### Art Grid  
-https://garretthogan.github.io/art-grid/
 
-Procedurally generate abstract art pieces in your browser.
+### Tools
 
-My friend built the stamps and asked if there was a way to generate compositions to rapidly prototype before polish in adobe illustrator. I created the art grid to give them a space to iterate on designs until they found what they liked.
+[Level Generator](https://garretthogan.github.io/level-generator/)
+A browser based tool for procedurally generating arenas, dungeons and simple interiors. Built with three js.
 
-- The design goal was to keep the workspace open and minimal so that the user isn't overwhelmed with options like in illustrator.
-- Supports exporting to SVG, PNG or JOEG.
-- Optimized workspace never renders the canvas larger than 64x64.
-- Dynamically scales vector graphics on export to match desired resolution.
+[Art Grid Generator](https://garretthogan.github.io/art-grid/)
+A browser based tool for procedurally generating editable abstract art pieces using hand made stamps. Built with javascript.
 
-Tech: JavaScript, SVG
+[CSG Editor](https://garretthogan.github.io/brush-editor/)
+A browser based tool for ediing constructive solid geometry that exports to GLB. Built with three js.
 
----
 
-### Light Fighter  
-https://garretthogan.github.io/light-fighter/
-
-A browser based prototype for a Megabonk/Vamp survivors like top down isometric game
-
-- Flexible spawn factory makes it easy to add new targets.
-- Moving targets are highly configurable and scale with difficulty.
-
-Tech: Three JS, JavaScript
-
----
-
-### Level Generator  
-https://garretthogan.github.io/level-generator/
-https://github.com/garretthogan/ULevelGenerator
-
-A rapid prototyping tool to quickly generate arenas, dungeons, and interiors that you can export to GLB.
-
-I built this so that I could easily generate different kinds of game spaces and explore them in first person without the complexity of a full blown game engine.
-
-- Preview levels in the browser using a simple FPS controller
-- Use the gallery view to quickly iterate over dozens of levels
-- Built a wrapper plugin that bridges my level generator into the Unreal Engine editor
-
-Tech: JavaScript, Three JS, C++, Unreal Engine
-
-### Aim Trainer  
-https://garretthogan.github.io/aim-trainer/
-
-A cross platform shooting game built for the browser.
-
-- Real time projectile physics using ammo js
-- Adjustable difficulty
-- VR support is coming!!
-
-Tech: JavaScript, Three JS, ammo JS
-
----
-
-### Blackjack Frontend  
-https://garretthogan.github.io/blackjack-frontend/
-
-I am doing balatro to blackjack.
-
-- Roguelike mechanics such as deck builder and shop
-- Dealer AI plays according to common vegas casino rules like hitting on a soft 17.
-
-Tech: React, JavaScript
-
----
-
-### Design System  
-https://garretthogan.github.io/design-system/
-
-I am personally inspired by the retro hacker terminal aesthetic and I wanted my personal projects to share a common design theme. I built this to capture my own design tastes and to make it easy to bring that aesthetic into any project that I spin up. This is typically a default dep in any personal project.
-
-- Single css file for easy integration
-- Very lightweight and relatively unopinionated.
-
-Tech: CSS, bash for bundling the static site.
-
----
-
-## Technical Skills
-
-**Frontend:** React, Vue, Angular, JavaScript, TypeScript  
-**Graphics & Interactive:** Three.js, WebGL, Canvas APIs  
-**Game Engines:** Unity, Unreal Engine  
-**Architecture:** Component systems, design systems, state management, modular UI architecture  
-**Tooling:** Git, GitHub, CI workflows, Peforce, AWS, Claude/Cursor
-**Practices:** Performance optimization, cross-disciplinary collaboration, scalable frontend systems
-**Programming Languages:** C++, Javascript/Node, C#, Python

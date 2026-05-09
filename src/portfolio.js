@@ -31,12 +31,14 @@ function exportPdf(contentEl, exportBtn) {
   exportBtn.disabled = true;
 
   const opt = {
-    margin: [6, 6, 24, 6],
+    margin: [10, 10, 10, 10],
     filename: 'Garrett-Hogan-Resume.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
+    // scroll offsets default to window scroll and become empty space at the top of the PDF
+    html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: 'css' },
+    // Default includes 'css', which can add an extra page with page-break-* rules on headings.
+    pagebreak: { mode: 'legacy' },
   };
 
   function cleanup() {
@@ -55,8 +57,10 @@ function exportPdf(contentEl, exportBtn) {
 
   function wrapSectionsForPdf() {
     const childNodes = Array.from(contentEl.children);
+    // H2 only: H3 subsections (e.g. Projects → Games / Tools) stay in one block so
+    // page-break-inside rules cannot orphan a short section onto the next page.
     const sectionStarts = childNodes
-      .map((el, i) => (el.tagName === 'H2' || el.tagName === 'H3' ? i : -1))
+      .map((el, i) => (el.tagName === 'H2' ? i : -1))
       .filter((i) => i >= 0);
     if (sectionStarts.length === 0) return;
     const sections = sectionStarts.map((start, i) => [
@@ -84,11 +88,16 @@ function exportPdf(contentEl, exportBtn) {
   }
 
   function runExport() {
+    const prevScroll = { x: window.scrollX, y: window.scrollY };
+    window.scrollTo(0, 0);
     document.body.classList.add('pdf-exporting');
     contentEl.classList.add('pdf-export-content');
-    contentEl.style.paddingBottom = '80px';
     wrapSectionsForPdf();
-    window.html2pdf().set(opt).from(contentEl).save().then(cleanup).catch(cleanup);
+    function finish() {
+      cleanup();
+      window.scrollTo(prevScroll.x, prevScroll.y);
+    }
+    window.html2pdf().set(opt).from(contentEl).save().then(finish).catch(finish);
   }
 
   requestAnimationFrame(() => requestAnimationFrame(runExport));

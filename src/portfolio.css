@@ -17,7 +17,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1rem;
   margin: 0;
   padding: 1rem 1.5rem;
@@ -26,18 +26,6 @@
   flex-wrap: wrap;
 }
 
-.portfolio-back {
-  font-size: var(--tui-font-size-sm, 0.875rem);
-  color: var(--tui-pink);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.portfolio-back:hover {
-  color: var(--tui-cyan);
-}
-
-.portfolio-export-pdf {
   font-family: inherit;
   font-size: var(--tui-font-size-sm, 0.875rem);
   padding: 0.4rem 0.75rem;
@@ -161,9 +149,12 @@
 body.pdf-exporting .portfolio-content.pdf-export-content {
   background: #fff !important;
   color: #000 !important;
-  border: 1px solid #ddd !important;
+  border: none !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
-  padding: 0.5rem 0.75rem 80px !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0.5rem 0.75rem !important;
 }
 
 body.pdf-exporting .portfolio-content.pdf-export-content h1,
@@ -200,7 +191,9 @@ body.pdf-exporting .portfolio-content.pdf-export-content h1 {
   page-break-after: avoid;
 }
 
-/* Each section (heading + body) stays on one page */
+/* Allow breaks inside a major (H2) section so subsections (e.g. Tools) aren't
+   pushed wholesale to the next page when space is still available. */
 body.pdf-exporting .portfolio-content .pdf-section {
-  page-break-inside: avoid;
+  page-break-inside: auto;
+  break-inside: auto;
 }

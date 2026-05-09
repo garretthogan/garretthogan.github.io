@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ragtagthrone</title>
+    <title>Portfolio — Garrett Hogan</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://garretthogan.github.io/design-system/design-system.css">
     <link rel="stylesheet" href="/src/style.css">
@@ -14,48 +14,16 @@
       <div class="loading-spinner"></div>
     </div>
     <div id="scene-container" class="scene-container" aria-hidden="true"></div>
-    <div id="view-home" class="page-content">
-    <main class="main-content">
-    <nav class="link-stacks">
-      <div class="link-stacks__glass" aria-hidden="true"></div>
-      <section class="link-stacks__category">
-        <h2 class="link-stacks__heading">Games</h2>
-        <ul class="stack stack--3">
-          <li><a href="https://garretthogan.github.io/aim-trainer/" target="_blank" rel="noopener noreferrer">aim-trainer</a></li>
-          <li><a href="https://garretthogan.github.io/react-pong/" target="_blank" rel="noopener noreferrer">pong</a></li>
-          <li><a href="https://garretthogan.github.io/digital-medium/" target="_blank" rel="noopener noreferrer">tarot</a></li>
-          <li><a href="https://garretthogan.github.io/blackjack-frontend/" target="_blank" rel="noopener noreferrer">blackjack</a></li>
-        </ul>
-      </section>
-      <section class="link-stacks__category">
-        <h2 class="link-stacks__heading">Tools</h2>
-        <ul class="stack stack--3">
-          <li><a href="https://garretthogan.github.io/art-grid/" target="_blank" rel="noopener noreferrer">svg-generator</a></li>
-          <li><a href="https://garretthogan.github.io/brush-editor/" target="_blank" rel="noopener noreferrer">brush-editor</a></li>
-          <li><a href="https://garretthogan.github.io/level-generator/" target="_blank" rel="noopener noreferrer">level-generator</a></li>
-          <li><a href="https://garretthogan.github.io/design-system/" rel="noopener noreferrer">design-system</a></li>
-        </ul>
-      </section>
-    </nav>
-    </main>
-    <div class="page-footer">
-      <a href="/portfolio" class="email">portfolio</a>
-      <a href="mailto:ragtagthrone@gmail.com" class="email" target="_blank" rel="noopener noreferrer">ragtagthrone@gmail.com</a>
+    <div id="pdf-loading-overlay" class="loading-overlay loading-overlay--hidden" aria-live="polite" aria-label="Exporting PDF">
+      <div class="loading-spinner"></div>
     </div>
+    <div class="portfolio-actions">
+      <button type="button" id="portfolio-export-pdf" class="portfolio-export-pdf" disabled>Export PDF</button>
     </div>
-    <div id="view-portfolio" class="view-portfolio" hidden>
-      <div id="pdf-loading-overlay" class="loading-overlay loading-overlay--hidden" aria-live="polite" aria-label="Exporting PDF">
-        <div class="loading-spinner"></div>
-      </div>
-      <div class="portfolio-actions">
-        <a href="/" class="portfolio-back">← Back</a>
-        <button type="button" id="portfolio-export-pdf" class="portfolio-export-pdf" disabled>Export PDF</button>
-      </div>
-      <div class="portfolio-page">
-        <article id="portfolio-content" class="portfolio-content" aria-busy="true" aria-label="Resume">
-          <div class="portfolio-loading">Loading…</div>
-        </article>
-      </div>
+    <div class="portfolio-page">
+      <article id="portfolio-content" class="portfolio-content" aria-busy="true" aria-label="Resume">
+        <div class="portfolio-loading">Loading…</div>
+      </article>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
