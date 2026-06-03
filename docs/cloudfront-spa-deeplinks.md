@@ -1,40 +1,53 @@
-# CloudFront: SPA and deep links (404/403 → index.html)
+# CloudFront + S3: subpages and deep links
 
-When someone opens a URL path that does not match a real object in S3 (for example a future client-side route), the origin may return **403** or **404**. Without custom error responses, the user sees an error instead of the app.
+This site is a **multi-page** static build (Vite), not a single-page app. Built pages live at paths like `founders/index.html`, `fractional-product-engineer/index.html`, and `startup-mvp-engineer/index.html`.
 
-Fix: tell CloudFront to serve your **index.html** whenever the origin returns 403 or 404 so the SPA can load.
+## The problem
 
-**Note:** `https://yoursite.com/portfolio` still works if you ship a `portfolio/index.html` under `public/` (copied to `dist/`) that redirects to `/`. The main app lives at `/` only.
+CloudFront is usually fronting the **S3 REST API endpoint**, not the S3 website endpoint. That API does **not** automatically map:
 
-## Steps (AWS Console)
+- `/founders/` → `/founders/index.html`
+- `/founders` → `/founders/index.html`
 
-1. Open **CloudFront** → **Distributions** → select the distribution for your site.
-2. Go to the **Error pages** tab.
-3. Click **Create custom error response** and add **two** responses:
+When a request misses, S3 returns **403**. If CloudFront is configured with custom error responses (403/404 → `/index.html`), visitors get the **home page** instead of the founders page.
 
-### 1) 403 → 200 with index.html
+Symptoms:
 
-| Field | Value |
-|-------|--------|
-| HTTP error code | 403: Forbidden |
-| Customize error response | Yes |
-| Response page path | `/index.html` |
-| HTTP response code | 200: OK |
+- `/founders/index.html` works
+- `/founders/` and `/founders` show the homepage
 
-Save.
+## Fix used in this repo
 
-### 2) 404 → 200 with index.html
+The S3 deploy workflow runs `scripts/sync-s3-routes.sh` after `aws s3 sync`. That script uploads each built subpage to both:
 
-| Field | Value |
-|-------|--------|
-| HTTP error code | 404: Not Found |
-| Customize error response | Yes |
-| Response page path | `/index.html` |
-| HTTP response code | 200: OK |
+- `founders`
+- `founders/`
 
-Save.
+…so pretty URLs work without CloudFront rewrite rules.
 
-4. (Optional) Invalidate the cache so the new behavior applies immediately:
-   - **Invalidations** tab → **Create invalidation** → Object path: `/*`
+After deploying, invalidate CloudFront (`/*`) if cached responses still look wrong.
 
-After this, requests for missing paths get your `index.html` with a 200 response (optional: add static files under `public/` for paths that should redirect or return their own HTML).
+## Optional: CloudFront Function (rewrite instead of duplicate objects)
+
+If you prefer not to duplicate objects, attach a **viewer request** CloudFront Function:
+
+```javascript
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri;
+
+  if (uri.endsWith('/')) {
+    request.uri += 'index.html';
+  } else if (!uri.includes('.')) {
+    request.uri += '/index.html';
+  }
+
+  return request;
+}
+```
+
+With this in place, custom 403/404 → `/index.html` error responses are only needed for routes that do not have a real HTML file.
+
+## `portfolio`
+
+`https://yoursite.com/portfolio` works via `public/portfolio/index.html`, which redirects to `/`. The route alias script does not need to include it unless you want `/portfolio/` to resolve without the nested `index.html` path.

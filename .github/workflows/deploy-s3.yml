@@ -57,6 +57,9 @@ jobs:
         run: |
           aws s3 sync dist/ s3://$AWS_S3_BUCKET/ --delete
 
+      - name: Publish directory route aliases
+        run: bash scripts/sync-s3-routes.sh "$AWS_S3_BUCKET"
+
       - name: Invalidate CloudFront cache
         if: vars.AWS_CLOUDFRONT_DISTRIBUTION_ID != ''
         run: |
