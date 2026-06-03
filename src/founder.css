@@ -11,7 +11,7 @@ body.founder-page #founder-root {
   width: 100%;
   max-width: var(--rt-max, 1100px);
   margin: 0 auto;
-  padding: calc(var(--rt-header-h, 3.5rem) + 2rem) 1.25rem 2rem;
+  padding: 2rem 1.25rem 2rem;
   box-sizing: border-box;
 }
 
