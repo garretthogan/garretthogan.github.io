@@ -6,7 +6,8 @@
 
 body.pdf-exporting .resume-pdf-source.pdf-export-content {
   display: block !important;
-  position: fixed;
+  /* html2canvas/html2pdf capture 0-height output for fixed/absolute elements */
+  position: relative;
   left: 0;
   top: 0;
   width: 100%;
