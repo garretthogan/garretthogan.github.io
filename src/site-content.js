@@ -1,6 +1,6 @@
 export const siteContent = {
   meta: {
-    title: 'Garrett Hogan, product minded engineering leader',
+    title: 'Garrett Hogan: Product Engineering Lead',
     description:
       'Product Engineering Lead',
   },
