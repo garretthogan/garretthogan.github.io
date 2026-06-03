@@ -3,13 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio — Garrett Hogan</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="https://garretthogan.github.io/design-system/design-system.css">
-    <link rel="stylesheet" href="/src/style.css">
-    <link rel="stylesheet" href="/src/portfolio.css">
+    <meta
+      name="description"
+      content="Garrett Hogan, product minded engineering leader for internal tools, creative software, and workflow systems."
+    />
+    <title>Garrett Hogan, product minded engineering leader</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/landing.css" />
+    <link rel="stylesheet" href="/src/resume-export.css" />
   </head>
-  <body class="tui">
+  <body>
     <div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading">
       <div class="loading-spinner"></div>
     </div>
@@ -17,14 +27,21 @@
     <div id="pdf-loading-overlay" class="loading-overlay loading-overlay--hidden" aria-live="polite" aria-label="Exporting PDF">
       <div class="loading-spinner"></div>
     </div>
-    <div class="portfolio-actions">
-      <button type="button" id="portfolio-export-pdf" class="portfolio-export-pdf" disabled>Export PDF</button>
-    </div>
-    <div class="portfolio-page">
-      <article id="portfolio-content" class="portfolio-content" aria-busy="true" aria-label="Resume">
-        <div class="portfolio-loading">Loading…</div>
-      </article>
-    </div>
+
+    <header class="site-header" id="site-header">
+      <a class="site-header__brand" href="#hero">Garrett Hogan</a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a class="site-header__link" href="#selected-work">View Selected Work</a>
+        <button type="button" class="btn btn--primary btn--resume" data-resume-download disabled>
+          Download Resume
+        </button>
+      </nav>
+    </header>
+
+    <main id="landing-root" class="landing"></main>
+
+    <article id="resume-pdf-source" class="resume-pdf-source" hidden aria-hidden="true"></article>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
     <script type="module" src="/src/main.js"></script>

@@ -1,7 +1,9 @@
 import { initSpaceScene } from './space-scene.js';
-import { initPortfolio } from './portfolio.js';
+import { renderLanding } from './landing.js';
+import { initResumeExport } from './resume-export.js';
 
-initPortfolio();
+renderLanding();
+initResumeExport();
 
 function dismissLoading() {
   const loadingOverlay = document.getElementById('loading-overlay');
@@ -12,8 +14,10 @@ function dismissLoading() {
 }
 
 function isMobile() {
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
-    (navigator.maxTouchPoints > 0 && window.matchMedia('(max-width: 900px)').matches);
+  return (
+    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
+    (navigator.maxTouchPoints > 0 && window.matchMedia('(max-width: 900px)').matches)
+  );
 }
 
 const container = document.getElementById('scene-container');
