@@ -74,24 +74,6 @@ function renderHero() {
   section.appendChild(el('p', { className: 'hero__subhead', text: hero.subhead }));
   section.appendChild(el('p', { className: 'hero__lead', text: hero.lead }));
   section.appendChild(el('p', { className: 'hero__skills', text: skillsLine }));
-
-  const actions = el('div', { className: 'hero__actions' });
-  actions.appendChild(
-    el('a', { href: hero.primaryCta.href, className: 'btn btn--secondary', text: hero.primaryCta.label })
-  );
-  actions.appendChild(
-    el('button', {
-      type: 'button',
-      className: 'btn btn--primary',
-      'data-resume-download': '',
-      disabled: true,
-      text: hero.secondaryCta.label,
-    })
-  );
-  actions.appendChild(
-    el('a', { href: hero.contactCta.href, className: 'btn btn--secondary', text: hero.contactCta.label })
-  );
-  section.appendChild(actions);
   section.appendChild(renderEmailRow(hero.email, hero));
 
   return section;

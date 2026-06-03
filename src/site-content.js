@@ -12,9 +12,6 @@ export const siteContent = {
       'I’m Garrett Hogan, a senior/lead software engineer with 10+ years of experience building software that helps teams make better operational, creative, and product decisions.',
     lead:
       'My strongest work sits at the intersection of engineering, product, and design, turning ambiguous workflows into clear, usable tools that people can rely on. I’ve built internal platforms, dashboards, design tools, prototypes, and interactive systems for teams that needed better visibility, faster iteration, and cleaner execution.',
-    primaryCta: { label: 'View Selected Work', href: '#selected-work' },
-    secondaryCta: { label: 'Download Resume' },
-    contactCta: { label: 'Contact Me', href: '#contact' },
     email: 'ragtagthrone@gmail.com',
     github: {
       label: 'GitHub',
