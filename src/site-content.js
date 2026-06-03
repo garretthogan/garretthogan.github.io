@@ -20,6 +20,10 @@ export const siteContent = {
       label: 'GitHub',
       url: 'https://github.com/garretthogan',
     },
+    linkedin: {
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/garretthogandev/',
+    },
   },
 
   skillsLine:
@@ -129,6 +133,10 @@ export const siteContent = {
     github: {
       label: 'GitHub',
       url: 'https://github.com/garretthogan',
+    },
+    linkedin: {
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/garretthogandev/',
     },
     primaryCta: { label: 'Get in touch', href: 'mailto:ragtagthrone@gmail.com' },
     resumeCta: 'Download Resume',

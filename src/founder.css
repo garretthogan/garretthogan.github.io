@@ -1,0 +1,146 @@
+body.founder-page {
+  background: var(--rt-bg, #0a0a0a);
+  color: var(--rt-fg, #f5f4f0);
+  margin: 0;
+}
+
+body.founder-page .landing,
+body.founder-page #founder-root {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--rt-max, 1100px);
+  margin: 0 auto;
+  padding: calc(var(--rt-header-h, 3.5rem) + 2rem) 1.25rem 2rem;
+  box-sizing: border-box;
+}
+
+.proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.25rem;
+}
+
+.proof-strip__item {
+  font-size: 0.85rem;
+  color: var(--rt-muted);
+  padding-right: 1rem;
+  border-right: 1px solid var(--rt-line);
+}
+
+.proof-strip__item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+@media (max-width: 767px) {
+  .proof-strip__item {
+    border-right: none;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+.fit-list {
+  margin: 0;
+  padding-left: 1.35rem;
+  max-width: 52rem;
+}
+
+.fit-list li {
+  margin: 0.65rem 0;
+  color: var(--rt-fg);
+}
+
+.landing-section--muted .fit-list li {
+  color: var(--rt-muted);
+}
+
+.faq {
+  margin: 0;
+  max-width: 52rem;
+}
+
+.faq__question {
+  margin: 1.25rem 0 0.35rem;
+  font-weight: 600;
+  color: var(--rt-fg);
+}
+
+.faq__question:first-child {
+  margin-top: 0;
+}
+
+.faq__answer {
+  margin: 0 0 0.5rem;
+  color: var(--rt-muted);
+  line-height: 1.6;
+}
+
+.internal-links__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.internal-links__link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--rt-accent);
+  text-decoration: none;
+}
+
+.internal-links__link:hover {
+  color: var(--rt-fg);
+  text-decoration: underline;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  max-width: var(--rt-max, 1100px);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  border-top: 1px solid var(--rt-line);
+  box-sizing: border-box;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.site-footer__link {
+  font-size: 0.85rem;
+  color: var(--rt-muted);
+  text-decoration: none;
+}
+
+.site-footer__link:hover {
+  color: var(--rt-fg);
+}
+
+.site-footer__copy {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--rt-muted);
+}
+
+@media (min-width: 1024px) {
+  body.founder-page .landing,
+  body.founder-page #founder-root {
+    max-width: var(--rt-max-desktop, 1360px);
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .site-footer {
+    max-width: var(--rt-max-desktop, 1360px);
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

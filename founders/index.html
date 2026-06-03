@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ragtag Throne helps founders turn early product ideas into usable MVPs, prototypes, internal tools, visual software, and AI-assisted workflow products."
+    />
+    <title>Product Engineering Help for Startup Founders — Ragtag Throne</title>
+    <link rel="canonical" href="https://ragtagthrone.com/founders" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Product Engineering Help for Startup Founders" />
+    <meta
+      property="og:description"
+      content="A senior product engineering partner for founders building MVPs, internal tools, visual software, and AI-assisted workflows."
+    />
+    <meta property="og:url" content="https://ragtagthrone.com/founders" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Product Engineering Help for Startup Founders" />
+    <meta
+      name="twitter:description"
+      content="A senior product engineering partner for founders building MVPs, internal tools, visual software, and AI-assisted workflows."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/landing.css" />
+    <link rel="stylesheet" href="/src/founder.css" />
+    <link rel="stylesheet" href="/src/resume-export.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Ragtag Throne",
+        "url": "https://ragtagthrone.com/founders",
+        "description": "Product engineering help for startup founders building MVPs, internal tools, visual software, and AI-assisted workflows.",
+        "provider": {
+          "@type": "Person",
+          "name": "Garrett Hogan",
+          "jobTitle": "Product Engineering Lead",
+          "email": "mailto:ragtagthrone@gmail.com",
+          "url": "https://ragtagthrone.com",
+          "sameAs": [
+            "https://github.com/garretthogan",
+            "https://www.linkedin.com/in/garretthogandev/"
+          ]
+        },
+        "areaServed": "Worldwide",
+        "serviceType": "Product Engineering"
+      }
+    </script>
+  </head>
+  <body class="founder-page" data-page="founders">
+    <header class="site-header" id="site-header"></header>
+    <main id="founder-root" class="landing"></main>
+    <article id="resume-pdf-source" class="resume-pdf-source" hidden aria-hidden="true"></article>
+    <div
+      id="pdf-loading-overlay"
+      class="loading-overlay loading-overlay--hidden"
+      aria-live="polite"
+      aria-label="Exporting PDF"
+    >
+      <div class="loading-spinner"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/src/founder-main.js"></script>
+  </body>
+</html>

@@ -1,33 +1,8 @@
 import { siteContent } from './site-content.js';
+import { el, sectionHeading } from './dom-utils.js';
+import { renderSiteFooter } from './site-shell.js';
 
-function el(tag, attrs = {}, children = []) {
-  const node = document.createElement(tag);
-  for (const [key, value] of Object.entries(attrs)) {
-    if (key === 'className') node.className = value;
-    else if (key === 'text') node.textContent = value;
-    else if (key === 'html') node.innerHTML = value;
-    else if (key.startsWith('on') && typeof value === 'function') {
-      node.addEventListener(key.slice(2).toLowerCase(), value);
-    } else if (key === 'disabled' && value !== false) {
-      node.disabled = true;
-    } else if (value !== undefined && value !== null) {
-      node.setAttribute(key, value);
-    }
-  }
-  for (const child of children) {
-    if (child == null) continue;
-    node.appendChild(typeof child === 'string' ? document.createTextNode(child) : child);
-  }
-  return node;
-}
-
-function sectionHeading(title, id) {
-  const attrs = { className: 'section-heading', text: title };
-  if (id) attrs.id = id;
-  return el('h2', attrs);
-}
-
-function renderEmailRow(email, github) {
+function renderEmailRow(email, { github, linkedin }) {
   const row = el('div', { className: 'contact-row' });
   const emailWrap = el('span', { className: 'contact-row__email' });
   emailWrap.appendChild(
@@ -35,15 +10,17 @@ function renderEmailRow(email, github) {
   );
   emailWrap.appendChild(createCopyButton(email));
   row.appendChild(emailWrap);
-  row.appendChild(
-    el('a', {
-      href: github.url,
-      className: 'contact-link',
-      target: '_blank',
-      rel: 'noopener noreferrer',
-      text: github.label,
-    })
-  );
+  for (const link of [github, linkedin].filter(Boolean)) {
+    row.appendChild(
+      el('a', {
+        href: link.url,
+        className: 'contact-link',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        text: link.label,
+      })
+    );
+  }
   return row;
 }
 
@@ -115,7 +92,7 @@ function renderHero() {
     el('a', { href: hero.contactCta.href, className: 'btn btn--secondary', text: hero.contactCta.label })
   );
   section.appendChild(actions);
-  section.appendChild(renderEmailRow(hero.email, hero.github));
+  section.appendChild(renderEmailRow(hero.email, hero));
 
   return section;
 }
@@ -231,7 +208,7 @@ function renderContact() {
     el('a', { href: '#selected-work', className: 'btn btn--secondary', text: 'View Selected Work' })
   );
   section.appendChild(actions);
-  section.appendChild(renderEmailRow(contact.email, contact.github));
+  section.appendChild(renderEmailRow(contact.email, contact));
   return section;
 }
 
@@ -247,4 +224,9 @@ export function renderLanding() {
   fragment.appendChild(renderRolesLookingFor());
   fragment.appendChild(renderContact());
   root.appendChild(fragment);
+
+  const landing = document.getElementById('landing-root');
+  if (landing?.parentNode) {
+    landing.parentNode.appendChild(renderSiteFooter());
+  }
 }

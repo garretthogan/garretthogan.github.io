@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Need senior product engineering help before hiring a full team? Ragtag Throne helps founders prototype, scope, build, and validate early software products."
+    />
+    <title>Fractional Product Engineer for Founders — Ragtag Throne</title>
+    <link rel="canonical" href="https://ragtagthrone.com/fractional-product-engineer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fractional Product Engineer for Founders" />
+    <meta
+      property="og:description"
+      content="Senior product engineering help for founders who need MVP strategy, hands-on development, and technical product judgment."
+    />
+    <meta property="og:url" content="https://ragtagthrone.com/fractional-product-engineer" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Fractional Product Engineer for Founders" />
+    <meta
+      name="twitter:description"
+      content="Senior product engineering help for founders who need MVP strategy, hands-on development, and technical product judgment."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/landing.css" />
+    <link rel="stylesheet" href="/src/founder.css" />
+    <link rel="stylesheet" href="/src/resume-export.css" />
+  </head>
+  <body class="founder-page" data-page="fractional">
+    <header class="site-header" id="site-header"></header>
+    <main id="founder-root" class="landing"></main>
+    <article id="resume-pdf-source" class="resume-pdf-source" hidden aria-hidden="true"></article>
+    <div
+      id="pdf-loading-overlay"
+      class="loading-overlay loading-overlay--hidden"
+      aria-live="polite"
+      aria-label="Exporting PDF"
+    >
+      <div class="loading-spinner"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/src/founder-main.js"></script>
+  </body>
+</html>

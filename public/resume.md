@@ -4,6 +4,7 @@ Portland, OR
 225-337-4350  
 ragtagthrone@gmail.com  
 GitHub: https://github.com/garretthogan  
+LinkedIn: https://www.linkedin.com/in/garretthogandev/  
 Website: https://www.ragtagthrone.com/
 
 ## Professional Experience
