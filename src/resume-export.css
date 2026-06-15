@@ -103,3 +103,15 @@ body.pdf-exporting .resume-pdf-source .pdf-section {
   page-break-inside: auto;
   break-inside: auto;
 }
+
+body.pdf-exporting .resume-pdf-source .pdf-section--new-page,
+body.pdf-exporting .resume-pdf-source h2.pdf-section--new-page,
+body.pdf-exporting .resume-pdf-source h3.pdf-section--new-page {
+  page-break-before: always;
+  break-before: page;
+}
+
+body.pdf-exporting .resume-pdf-source .pdf-page-break,
+body.pdf-exporting .resume-pdf-source .html2pdf__page-break {
+  display: none;
+}

@@ -50,7 +50,11 @@ function exportPdf(contentEl, triggerBtn) {
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: 'legacy' },
+    pagebreak: {
+      mode: 'css',
+      before: '.pdf-section--new-page',
+      avoid: 'h2, h3',
+    },
   };
 
   function cleanup() {
@@ -87,7 +91,38 @@ function exportPdf(contentEl, triggerBtn) {
   requestAnimationFrame(() => requestAnimationFrame(runExport));
 }
 
+function isPageBreakMarker(el) {
+  if (!el || el.nodeType !== 1) return false;
+  if (
+    el.classList?.contains('pdf-page-break') ||
+    el.classList?.contains('html2pdf__page-break')
+  ) {
+    return true;
+  }
+  const style = el.getAttribute('style') || '';
+  return (
+    el.tagName === 'DIV' &&
+    /page-break-before:\s*always|break-before:\s*page/i.test(style)
+  );
+}
+
+function applyPageBreaks(contentEl) {
+  let node = contentEl.firstElementChild;
+  while (node) {
+    const current = node;
+    node = node.nextElementSibling;
+    if (!isPageBreakMarker(current)) continue;
+    const next = current.nextElementSibling;
+    if (next?.tagName === 'H2' || next?.tagName === 'H3') {
+      next.classList.add('pdf-section--new-page');
+    }
+    current.remove();
+  }
+}
+
 function wrapSectionsForPdf(contentEl) {
+  applyPageBreaks(contentEl);
+
   const childNodes = Array.from(contentEl.children);
   const sectionStarts = childNodes
     .map((el, i) => (el.tagName === 'H2' ? i : -1))
@@ -102,6 +137,11 @@ function wrapSectionsForPdf(contentEl) {
     const [start, end] = sections[i];
     const div = document.createElement('div');
     div.className = 'pdf-section';
+    const heading = childNodes[start];
+    if (heading?.classList.contains('pdf-section--new-page')) {
+      div.classList.add('pdf-section--new-page');
+      heading.classList.remove('pdf-section--new-page');
+    }
     for (let j = start; j < end; j++) div.appendChild(childNodes[j]);
     if (nextDiv && nextDiv.parentNode) contentEl.insertBefore(div, nextDiv);
     else contentEl.appendChild(div);

@@ -1,53 +1,56 @@
 # Garrett Hogan
 
-Portland, OR 
-225-337-4350  
-ragtagthrone@gmail.com  
-GitHub: https://github.com/garretthogan  
-LinkedIn: https://www.linkedin.com/in/garretthogandev/  
-Website: https://www.ragtagthrone.com/
+- [ragtagthrone@gmail.com](mailto:ragtagthrone@gmail.com)
+- [GitHub](https://github.com/garretthogan)
+- [LinkedIn](https://www.linkedin.com/in/garretthogandev/)
+- [Website](https://www.ragtagthrone.com/)
 
 ## Professional Experience
 
-**Senior / Lead Software Engineer — Nike 2015-2026**
+### Senior / lead software engineer, Nike
 
-Built and supported internal tools across product launch operations, inventory allocation, digital commerce, design workflows, and emerging 3D configuration experiences. Integrated Nike inventory services, developed product lifecycle management tools, and built real-time dashboards to track products from allocation through checkout during high-heat launches.
+**2015-2026**
 
-Delivered features, fixed bugs, reviewed code, improved performance, and provided direct user support across applications for colors, materials, graphics, apparel illustration, and shared consumer-facing components. Modernized legacy tooling by upgrading outdated Node/Vue stacks, removing deprecated dependencies, and improving developer workflows.
+Built and supported internal tools for product launches, inventory allocation, digital commerce, creative workflows, PLM, and emerging 3D configuration experiences. Developed real time dashboards, integrated inventory and product data services, modernized legacy Node/Vue applications, and delivered workflow tools for materials, colors, graphics, apparel illustration, and shared components. Partnered with cross functional teams to ship features, resolve production issues, improve developer workflows, and prototype Unreal Engine, AI, and CAD configurator experiences.
 
-Led technical contributions for material and color library experiences, including API integrations, filtering, sorting, collections, and web component integration strategy. Prototyped UE5-based CAD configurator workflows, built Okta authentication and Splunk analytics plugins for Unreal Engine, and helped deploy AI/prototype applications by integrating APIs and setting up CI pipelines for user testing.
+## Core Skills
 
-## Personal Experience
+### Product Engineering
 
-Built and shipped independent prototypes across games, creative tools, procedural generation, and real-time 3D workflows. Rapidly prototyped multiplayer VR and experimental game concepts for Global Game Jam projects, including Oculus SDK integration for multiplayer experiences.
+I turn ambiguous ideas, operational problems, and messy data into focused software workflows. My work spans product launch tools, inventory dashboards, digital commerce visibility, creative production systems, and civic data products. At Nike, I built front end applications for tracking products, managing creative assets, and supporting cross-functional launch operations. In my independent work, I apply the same product approach to Wardboard, Flipspace, and Deck Dynasty by reducing broad problem spaces into usable MVPs with clear interaction models.
 
-Developed a UE5 parkour FPS character system with wall running, sliding, and grappling mechanics to explore fast, expressive first-person movement. Built creative tooling for procedural abstract art generation using handmade Illustrator stamps, with SVG resolution scaling, multi-format export, and workspace transform controls to support faster design iteration.
+I work primarily with JavaScript, React, Vue, Angular, Vite, and state-heavy UI patterns, with a focus on interfaces that carry the product experience through filtering, dashboards, spatial editing, and state driven interactions.
 
-Created a procedural level generation workflow that enables rapid 2D layout iteration before validating spaces in a 3D preview, with GLB export for broad compatibility across tools and pipelines.
+### Creative and Spatial Tools
 
-## Projects
+I build visual tools for planning, prototyping, and interactive exploration. Flipspace applies this to commercial space planning with a browser based layout workflow. My earlier Three.js and WebGL projects explored procedural level generation, CSG editing, abstract art systems, and real time 3D previews. I also have Unity and Unreal Engine experience, including UE5 prototyping work at Nike for CAD configuration, authentication, analytics, and user testing.
 
-### Games
+<div class="pdf-page-break"></div>
 
-[Endless Zero](https://garretthogan.github.io/endless-zero/)
-An endless runner inspired by old school star fighter games like Star Fox. Built for the browser with three js.
+### Game Systems and Interactive Prototypes
 
-[Light Fighter](https://garretthogan.github.io/light-fighter/)
-A small fast paced roguelike inspired by games like megabonk and vampire survivors. Built for the browser with three js.
+I design and build prototypes that turn complex systems into playable or explorable loops. Deck Dynasty translates football strategy into a turn based card system with red zone decisions, player moments, and progression. This connects to my broader product work through defining the core loop, reducing scope, building the interaction, testing the system, and iterating.
 
-[Roguelike Blackjack](https://garretthogan.github.io/blackjack-frontend/)
-A simple roguelike blackjack game inspired by Balatro. Built with React and javascript.
+### Technical Leadership
 
+I have led technical work across production applications, legacy modernization, and cross functional product teams. At Nike, I reviewed code, improved performance, upgraded outdated Node and Vue stacks, removed deprecated dependencies, supported users directly, and guided practical architecture decisions. My leadership style is hands on and focused on clarifying workflows, reducing complexity, improving the codebase, and keeping the product moving.
 
-### Tools
+## Independent Product and Creative Systems Work
 
-[Level Generator](https://garretthogan.github.io/level-generator/)
-A browser based tool for procedurally generating arenas, dungeons and simple interiors. Built with three js.
+### Wardboard / Ward 311
 
-[Art Grid Generator](https://garretthogan.github.io/art-grid/)
-A browser based tool for procedurally generating editable abstract art pieces using hand made stamps. Built with javascript.
+https://wardboard.vercel.app/
 
-[CSG Editor](https://garretthogan.github.io/brush-editor/)
-A browser based tool for ediing constructive solid geometry that exports to GLB. Built with three js.
+Built a civic data dashboard for exploring Chicago 311 service requests by ward, making public service request data easier to understand at the neighborhood level. Designed fast filtering, readable summaries, and simple visual feedback to help residents, organizers, and local teams identify local patterns and recurring issues.
 
+### Flipspace
 
+https://flipspace.app
+
+Built a browser based commercial space planning tool for small offices, clinics, dental practices, and service businesses. Designed an editor style interface for sketching layouts, evaluating spatial fit, and reasoning through lease or buildout decisions before engaging architects, contractors, or landlords.
+
+### Deck Dynasty
+
+https://deck-dynasty.vercel.app/
+
+Built a football roguelike card battler that compresses red zone strategy into a fast, turn based system of matchups, boosts, risks, and scoring decisions. Developed the playable browser prototype, including the state driven game loop, card resolution rules, opponent behavior, onboarding, and progression structure.
