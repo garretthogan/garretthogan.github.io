@@ -107,7 +107,7 @@ export const siteContent = {
   ],
 
   professionalExperience: {
-    role: 'Senior and lead software engineer at Nike, 2015 to 2026',
+    role: 'Senior / lead software engineer at Nike, 2015 to 2026',
     intro:
       'I spent more than 10 years building business critical internal platforms across product launch operations, inventory allocation, ecommerce monitoring, and creative workflows, working as a senior engineer and technical lead with product, operations, and design teams.',
     highlights: [
