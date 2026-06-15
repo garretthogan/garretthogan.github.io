@@ -29,17 +29,8 @@ export const siteContent = {
   featuredProjects: [
     {
       title: 'Wardboard / Ward 311',
-      description: 'Civic data dashboard for exploring Chicago service requests by ward.',
-      whatIBuilt:
-        'Built a focused interface for filtering and visualizing public service request data so residents, organizers, and local teams can better understand neighborhood issues.',
-      skills: [
-        'civic data UX',
-        'dashboard design',
-        'filtering systems',
-        'data visualization',
-        'public data product thinking',
-        'frontend implementation',
-      ],
+      body:
+        'Civic data dashboard for exploring Chicago service requests by ward. I built a focused interface for filtering and visualizing public service request data so residents, organizers, and local teams can understand neighborhood issues more clearly, combining civic data UX, dashboard design, filtering systems, data visualization, and frontend implementation.',
       link: {
         label: 'View Wardboard',
         url: 'https://wardboard.vercel.app/',
@@ -47,17 +38,8 @@ export const siteContent = {
     },
     {
       title: 'Flipspace',
-      description:
-        'Lightweight commercial space planning tool for small offices, clinics, and service businesses.',
-      whatIBuilt:
-        'Designed a visual workflow for validating whether a space can support a business layout before hiring an architect or contractor.',
-      skills: [
-        'spatial product design',
-        'canvas and editor UX',
-        '2D/3D interaction',
-        'workflow simplification',
-        'B2B MVP scoping',
-      ],
+      body:
+        'Lightweight commercial space planning tool for small offices, clinics, and service businesses. I designed a visual workflow for validating whether a space can support a business layout before hiring an architect or contractor, drawing on spatial product design, canvas and editor UX, 2D/3D interaction, workflow simplification, and B2B MVP scoping.',
       link: {
         label: 'View Flipspace',
         url: 'https://flipspace.app',
@@ -65,17 +47,8 @@ export const siteContent = {
     },
     {
       title: 'Deck Dynasty',
-      description: 'Football roguelike card battler built around red zone decisions and dynasty progression.',
-      whatIBuilt:
-        'Designed and prototyped a game system that reduces football strategy into fast card based matchups, player moments, and season based progression.',
-      skills: [
-        'game systems design',
-        'MVP reduction',
-        'onboarding',
-        'card mechanics',
-        'turn based logic',
-        'product validation',
-      ],
+      body:
+        'Football roguelike card battler built around red zone decisions and dynasty progression. I designed and prototyped a game system that reduces football strategy into fast card based matchups, player moments, and season based progression, applying game systems design, MVP reduction, onboarding, card mechanics, turn based logic, and product validation.',
       link: {
         label: 'View Deck Dynasty',
         url: 'https://deck-dynasty.vercel.app/',

@@ -64,15 +64,7 @@ function renderHero() {
 function renderFeaturedProject(project) {
   const item = el('article', { className: 'card card--project' });
   item.appendChild(el('h3', { className: 'card__title', text: project.title }));
-  item.appendChild(el('p', { className: 'project-description', text: project.description }));
-  item.appendChild(el('p', { className: 'project-built', text: project.whatIBuilt }));
-
-  const skillsBlock = el('div', { className: 'project-skills' });
-  skillsBlock.appendChild(el('span', { className: 'project-skills__label', text: 'Skills' }));
-  skillsBlock.appendChild(
-    el('p', { className: 'project-skills__list', text: project.skills.join(', ') })
-  );
-  item.appendChild(skillsBlock);
+  item.appendChild(el('p', { className: 'project-body', text: project.body }));
 
   if (project.link) {
     item.appendChild(
