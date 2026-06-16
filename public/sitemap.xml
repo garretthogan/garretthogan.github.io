@@ -12,4 +12,19 @@
   <url>
     <loc>https://ragtagthrone.com/startup-mvp-engineer</loc>
   </url>
+  <url>
+    <loc>https://ragtagthrone.com/gpts/roguelike-deckbuilder-designer</loc>
+  </url>
+  <url>
+    <loc>https://ragtagthrone.com/playbooks/roguelike-deckbuilder-mvp</loc>
+  </url>
+  <url>
+    <loc>https://ragtagthrone.com/playbooks/deckbuilder-balance-checklist</loc>
+  </url>
+  <url>
+    <loc>https://ragtagthrone.com/playbooks/card-system-design</loc>
+  </url>
+  <url>
+    <loc>https://ragtagthrone.com/playbooks/cursor-spec-for-card-games</loc>
+  </url>
 </urlset>

@@ -10,6 +10,11 @@ routes=(
   founders
   fractional-product-engineer
   startup-mvp-engineer
+  gpts/roguelike-deckbuilder-designer
+  playbooks/roguelike-deckbuilder-mvp
+  playbooks/deckbuilder-balance-checklist
+  playbooks/card-system-design
+  playbooks/cursor-spec-for-card-games
 )
 
 for route in "${routes[@]}"; do

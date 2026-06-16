@@ -1,0 +1,33 @@
+.hero__subhead {
+  margin: 0 0 1.5rem;
+  color: var(--rt-muted);
+  max-width: 48rem;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.prompt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 52rem;
+}
+
+.prompt-block {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--rt-line);
+  background: var(--rt-surface);
+  border-radius: 0;
+  font-family: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--rt-fg);
+}
+
+@media (max-width: 767px) {
+  .prompt-block {
+    font-size: 0.85rem;
+    padding: 0.9rem 1rem;
+  }
+}

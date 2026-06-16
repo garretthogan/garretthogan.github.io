@@ -13,6 +13,10 @@ export const founderShared = {
     { label: 'For Founders', href: '/founders/' },
     { label: 'Fractional Product Engineer', href: '/fractional-product-engineer/' },
     { label: 'Startup MVP Engineer', href: '/startup-mvp-engineer/' },
+    {
+      label: 'Roguelike Deckbuilder Designer GPT',
+      href: '/gpts/roguelike-deckbuilder-designer/',
+    },
   ],
   internalLinks: {
     founders: { href: '/founders/', label: 'For founders' },
