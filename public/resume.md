@@ -7,33 +7,30 @@
 
 ## Professional Experience
 
-### Senior / lead software engineer, Nike
+## Professional Experience
 
-**2015-2026**
+### Senior Software Engineer, Nike  
+**2015–2026**
 
-Built and supported internal tools for product launches, inventory allocation, digital commerce, creative workflows, PLM, and emerging 3D configuration experiences. Developed real time dashboards, integrated inventory and product data services, modernized legacy Node/Vue applications, and delivered workflow tools for materials, colors, graphics, apparel illustration, and shared components. Partnered with cross functional teams to ship features, resolve production issues, improve developer workflows, and prototype Unreal Engine, AI, and CAD configurator experiences.
+Senior front-end engineer and technical lead building internal tools for launch operations, digital commerce visibility, creative workflows, WebGL product visualization, and AI-assisted design. Partnered with product managers, designers, engineers, creative directors, and operations teams to turn ambiguous workflow problems into production software used across Nike internal teams.
+
+- Delivered features for an internal **SNKRS Web launch operations dashboard** used to manage high-heat product releases. Estimated implementation complexity, groomed stories, fixed production bugs, and provided onsite support during critical launch windows.
+
+- Helped create a reusable internal component library for Nike dashboard products, reducing the cost of building new operational tools. Interviewed stakeholders, identified repeated dashboard pain points, collaborated with maintainers on MVP scope and roadmap planning, and shipped reusable UI patterns.
+
+- Built a real-time commerce operations dashboard for tracking purchases from checkout through inventory allocation, payment failures, insufficient funds, and other transaction states, giving teams clearer visibility into where purchase flows succeeded or failed.
+
+- Improved a WebGL-based footwear refresh tool that allowed teams to quickly apply new colors and materials to existing shoe models. Optimized rendering, fixed bugs, and delivered features in a legacy Angular application with custom shader logic.
+
+- Built and maintained a Vue-based color and material browsing tool for Nike designers. Supported palette creation workflows that connected to Illustrator plugins, helping designers move colors and materials into creative production faster.
+
+- Worked directly with a creative director to productize generative AI tools for product ideation and marketing concept development in the browser, integrating workflows around Gemini, Nano Banana, and internal creative experimentation.
 
 ## Core Skills
 
-### Product Engineering
+I build product-focused software for internal tools, creative systems, dashboards, spatial workflows, and interactive prototypes. My work spans product launch operations, inventory visibility, digital commerce tracking, WebGL tools, civic data products, and game systems. I work primarily with JavaScript, React, Vue, Angular, Vite, Three.js, WebGL, Unity, and Unreal Engine, with a focus on interfaces that carry the product experience through filtering, dashboards, spatial editing, real-time feedback, and state-driven interactions.
 
-I turn ambiguous ideas, operational problems, and messy data into focused software workflows. My work spans product launch tools, inventory dashboards, digital commerce visibility, creative production systems, and civic data products. At Nike, I built front end applications for tracking products, managing creative assets, and supporting cross-functional launch operations. In my independent work, I apply the same product approach to Wardboard, Flipspace, and Deck Dynasty by reducing broad problem spaces into usable MVPs with clear interaction models.
-
-I work primarily with JavaScript, React, Vue, Angular, Vite, and state-heavy UI patterns, with a focus on interfaces that carry the product experience through filtering, dashboards, spatial editing, and state driven interactions.
-
-### Creative and Spatial Tools
-
-I build visual tools for planning, prototyping, and interactive exploration. Flipspace applies this to commercial space planning with a browser based layout workflow. My earlier Three.js and WebGL projects explored procedural level generation, CSG editing, abstract art systems, and real time 3D previews. I also have Unity and Unreal Engine experience, including UE5 prototyping work at Nike for CAD configuration, authentication, analytics, and user testing.
-
-<div class="pdf-page-break"></div>
-
-### Game Systems and Interactive Prototypes
-
-I design and build prototypes that turn complex systems into playable or explorable loops. Deck Dynasty translates football strategy into a turn based card system with red zone decisions, player moments, and progression. This connects to my broader product work through defining the core loop, reducing scope, building the interaction, testing the system, and iterating.
-
-### Technical Leadership
-
-I have led technical work across production applications, legacy modernization, and cross functional product teams. At Nike, I reviewed code, improved performance, upgraded outdated Node and Vue stacks, removed deprecated dependencies, supported users directly, and guided practical architecture decisions. My leadership style is hands on and focused on clarifying workflows, reducing complexity, improving the codebase, and keeping the product moving.
+At Nike, I led technical work across production applications, legacy modernization, reusable component systems, and cross-functional product teams. I reviewed code, improved performance, upgraded outdated Node and Vue stacks, removed deprecated dependencies, supported users directly, and helped guide practical architecture decisions. My leadership style is hands-on and focused on clarifying workflows, reducing complexity, improving the codebase, and keeping the product moving.
 
 ## Independent Product and Creative Systems Work
 
