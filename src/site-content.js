@@ -1,36 +1,80 @@
 export const siteContent = {
   meta: {
-    title: 'Garrett Hogan',
+    title: 'Ragtag Throne',
     description:
-      'Creative Systems Engineer',
+      'A solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences.',
   },
 
   hero: {
-    eyebrow: 'Garrett Hogan',
+    eyebrow: 'Ragtag Throne',
     headline:
-      'Creative Systems Engineer',
+      'A solo-led creative technology agency for interactive products, prototypes, and workflow tools.',
     lead:
-      'I build fast, usable software for complex workflows, from ward level civic dashboards and commercial space planning tools to game systems and internal platforms. My work combines frontend engineering, product judgment, visual systems, and practical execution.',
+      'Ragtag Throne helps founders and teams turn ambiguous ideas into usable software: visual tools, dashboards, creative systems, spatial interfaces, AI-assisted workflows, and focused MVPs that are built to be tested.',
+    actions: [
+      {
+        label: 'Start a project',
+        href: 'mailto:ragtagthrone@gmail.com?subject=Creative%20technology%20project',
+        variant: 'primary',
+      },
+      {
+        label: 'View work',
+        href: '#featured-work',
+        variant: 'secondary',
+      },
+    ],
     email: 'ragtagthrone@gmail.com',
-    github: {
-      label: 'GitHub',
-      url: 'https://github.com/garretthogan',
-    },
-    linkedin: {
-      label: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/garretthogandev/',
-    },
-    resume: {
-      label: 'Resume',
-      href: '#contact',
-    },
+    links: [
+      {
+        label: 'Garrett / Resume',
+        href: '/portfolio/',
+      },
+      {
+        label: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/garretthogandev/',
+      },
+    ],
   },
+
+  proofStrip: [
+    'Solo-led by Garrett Hogan',
+    '10+ years senior / lead engineering at Nike',
+    'Interactive products, dashboards, WebGL, and AI workflows',
+    'Prototype-to-production product engineering',
+  ],
+
+  services: [
+    {
+      title: 'Product Prototypes',
+      body: 'Shape a messy idea into the smallest usable product experience, then build enough of it to test with real people.',
+    },
+    {
+      title: 'Interactive Web Experiences',
+      body: 'Design and build browser-based experiences where the interface is the product: editors, configurators, simulations, and rich front ends.',
+    },
+    {
+      title: 'Workflow Tools and Dashboards',
+      body: 'Create focused internal tools, operational dashboards, filtering systems, and decision-support interfaces for teams with complex work.',
+    },
+    {
+      title: 'Spatial and Visual Systems',
+      body: 'Turn visual, spatial, or canvas-heavy workflows into practical software for planning, exploring, arranging, and making decisions.',
+    },
+    {
+      title: 'AI-Assisted Product Workflows',
+      body: 'Prototype useful AI features around editing, generation, summarization, planning, classification, and creative production.',
+    },
+    {
+      title: 'Technical Product Direction',
+      body: 'Clarify scope, architecture, interaction models, implementation tradeoffs, and what should wait until the product proves itself.',
+    },
+  ],
 
   featuredProjects: [
     {
       title: 'Wardboard / Ward 311',
       body:
-        'Civic data dashboard for exploring Chicago service requests by ward. I built a focused interface for filtering and visualizing public service request data so residents, organizers, and local teams can understand neighborhood issues more clearly, combining civic data UX, dashboard design, filtering systems, data visualization, and frontend implementation.',
+        'A civic data dashboard for exploring Chicago service requests by ward. The work combines public-data UX, filtering systems, visual hierarchy, and front-end implementation for residents, organizers, and local teams.',
       link: {
         label: 'View Wardboard',
         url: 'https://wardboard.vercel.app/',
@@ -39,7 +83,7 @@ export const siteContent = {
     {
       title: 'Flipspace',
       body:
-        'Lightweight commercial space planning tool for small offices, clinics, and service businesses. I designed a visual workflow for validating whether a space can support a business layout before hiring an architect or contractor, drawing on spatial product design, canvas and editor UX, 2D/3D interaction, workflow simplification, and B2B MVP scoping.',
+        'A lightweight commercial space planning tool for small offices, clinics, and service businesses. The product translates a spatial business question into an editor-style workflow for testing layout fit before a costly buildout.',
       link: {
         label: 'View Flipspace',
         url: 'https://flipspace.app',
@@ -48,7 +92,7 @@ export const siteContent = {
     {
       title: 'Deck Dynasty',
       body:
-        'Football roguelike card battler built around red zone decisions and dynasty progression. I designed and prototyped a game system that reduces football strategy into fast card based matchups, player moments, and season based progression, applying game systems design, MVP reduction, onboarding, card mechanics, turn based logic, and product validation.',
+        'A football roguelike card battler that compresses red-zone strategy into fast card-based decisions. The prototype covers game systems design, onboarding, turn resolution, progression, and product validation.',
       link: {
         label: 'View Deck Dynasty',
         url: 'https://deck-dynasty.vercel.app/',
@@ -56,99 +100,69 @@ export const siteContent = {
     },
   ],
 
-  whatIDo: [
-    {
-      title: 'Product Engineering',
-      body: 'MVP scoping, product workflows, validation paths, technical tradeoffs, and user facing iteration.',
-    },
-    {
-      title: 'Interactive Front Ends',
-      body: 'React interfaces, complex UI state, dashboards, editors, filtering systems, and responsive interaction design.',
-    },
-    {
-      title: 'Data & Visualization',
-      body: 'Public data interfaces, civic dashboards, operational visibility, information hierarchy, and exploratory filtering.',
-    },
-    {
-      title: 'Creative Systems',
-      body: 'Game mechanics, card systems, spatial tools, procedural workflows, and visual prototyping.',
-    },
-    {
-      title: 'Technical Leadership',
-      body: 'Architecture decisions, design systems, modernization, cross functional collaboration, mentoring, and production support.',
-    },
-  ],
-
-  professionalExperience: {
-    role: 'Senior / lead software engineer at Nike, 2015 to 2026',
+  process: {
+    heading: 'How Projects Move',
     intro:
-      'I spent more than 10 years building business critical internal platforms across product launch operations, inventory allocation, ecommerce monitoring, and creative workflows, working as a senior engineer and technical lead with product, operations, and design teams.',
-    highlights: [
-      'built business critical tools for product launch and inventory workflows',
-      'supported ecommerce and operational visibility tooling',
-      'contributed to creative and design workflow systems',
-      'led frontend engineering and technical direction on design systems and shared platform tooling',
-      'modernized frontend systems and improved maintainability',
-      'worked directly with cross functional users to turn messy workflows into usable software',
+      'The work starts by finding the smallest version that can teach us something real, then building with enough polish and structure to support the next decision.',
+    steps: [
+      {
+        title: 'Clarify the workflow',
+        body: 'Map the user, the decision they need to make, and the moment where software can remove friction.',
+      },
+      {
+        title: 'Cut the scope',
+        body: 'Separate the core product test from the features that can wait until the idea earns more investment.',
+      },
+      {
+        title: 'Prototype the interaction',
+        body: 'Build the key interface, data flow, and feedback loops quickly enough to learn while the shape is still flexible.',
+      },
+      {
+        title: 'Ship something usable',
+        body: 'Tighten the product, handle the practical edges, and leave behind code that can survive the next round of iteration.',
+      },
     ],
   },
 
-  earlierExperiments: [
-    {
-      label: 'Brush Editor',
-      url: 'https://garretthogan.github.io/brush-editor/',
-    },
-    {
-      label: 'Art Grid',
-      url: 'https://garretthogan.github.io/art-grid/',
-    },
-    {
-      label: 'Light Fighter',
-      url: 'https://garretthogan.github.io/light-fighter/',
-    },
-    {
-      label: 'Level Generator',
-      url: 'https://garretthogan.github.io/level-generator/',
-    },
-    {
-      label: 'Aim Trainer',
-      url: 'https://garretthogan.github.io/aim-trainer/',
-    },
-  ],
-
-  technicalStack: [
-    {
-      label: 'Languages',
-      tools: 'JavaScript, C++, C#',
-    },
-    {
-      label: 'Frontend',
-      tools: 'React, Vue, Angular, Vite, React Router',
-    },
-    {
-      label: 'Graphics & Game Tech',
-      tools: 'Three.js, WebGL, Unity, Unreal Engine 5',
-    },
-    {
-      label: 'Tools',
-      tools: 'GitHub, Vercel, Cursor, Figma, Splunk, Okta',
-    },
-  ],
+  agencyProof: {
+    heading: 'Why Ragtag Throne',
+    role: 'Led by Garrett Hogan, senior / lead software engineer at Nike from 2015 to 2026.',
+    intro:
+      'Ragtag Throne brings product engineering judgment to creative technology work: the ability to understand ambiguous workflows, design the interface, build the software, and make pragmatic technical decisions without turning every idea into a large platform.',
+    highlights: [
+      'built production internal tools for launch operations, ecommerce visibility, inventory workflows, and creative teams',
+      'led frontend direction across dashboards, shared component systems, WebGL tooling, and legacy modernization',
+      'worked directly with product, operations, design, and creative stakeholders to turn messy needs into usable software',
+      'independently prototypes civic data products, spatial planning tools, game systems, and AI-assisted workflows',
+    ],
+  },
 
   contact: {
     lead:
-      'Interested in product engineering, internal tools, civic data products, spatial workflows, or creative systems? Reach out.',
+      'Have a product idea, prototype, dashboard, visual tool, or strange workflow that needs shape? Send the rough version.',
     email: 'ragtagthrone@gmail.com',
-    github: {
-      label: 'GitHub',
-      url: 'https://github.com/garretthogan',
-    },
-    linkedin: {
-      label: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/garretthogandev/',
-    },
-    primaryCta: { label: 'Get in touch', href: 'mailto:ragtagthrone@gmail.com' },
-    resumeCta: 'Download Resume',
+    actions: [
+      {
+        label: 'Start a project',
+        href: 'mailto:ragtagthrone@gmail.com?subject=Creative%20technology%20project',
+        variant: 'primary',
+      },
+      {
+        label: 'View Garrett / Resume',
+        href: '/portfolio/',
+        variant: 'secondary',
+      },
+    ],
+    links: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/garretthogan',
+      },
+      {
+        label: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/garretthogandev/',
+      },
+    ],
   },
 
   pdfFilename: 'Garrett-Hogan-Resume.pdf',

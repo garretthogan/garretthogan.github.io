@@ -8,6 +8,7 @@ export default {
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
+        portfolio: path.resolve(__dirname, 'portfolio/index.html'),
         founders: path.resolve(__dirname, 'founders/index.html'),
         fractional: path.resolve(__dirname, 'fractional-product-engineer/index.html'),
         mvp: path.resolve(__dirname, 'startup-mvp-engineer/index.html'),

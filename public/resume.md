@@ -7,8 +7,6 @@
 
 ## Professional Experience
 
-## Professional Experience
-
 ### Senior Software Engineer, Nike  
 **2015–2026**
 
@@ -25,6 +23,8 @@ Senior front-end engineer and technical lead building internal tools for launch 
 - Built and maintained a Vue-based color and material browsing tool for Nike designers. Supported palette creation workflows that connected to Illustrator plugins, helping designers move colors and materials into creative production faster.
 
 - Worked directly with a creative director to productize generative AI tools for product ideation and marketing concept development in the browser, integrating workflows around Gemini, Nano Banana, and internal creative experimentation.
+
+<div class="pdf-page-break"></div>
 
 ## Core Skills
 

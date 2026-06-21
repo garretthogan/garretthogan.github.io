@@ -2,6 +2,7 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 1.5rem 1.25rem;
+  box-sizing: border-box;
 }
 
 body.pdf-exporting .resume-pdf-source.pdf-export-content {
@@ -12,6 +13,7 @@ body.pdf-exporting .resume-pdf-source.pdf-export-content {
   top: 0;
   width: 100%;
   max-width: none;
+  box-sizing: border-box;
   z-index: 20;
   margin: 0;
 }
@@ -21,6 +23,38 @@ body.pdf-exporting .resume-pdf-source.pdf-export-content {
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+}
+
+.resume-pdf-source h1 + ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.65rem;
+  margin: 0 0 1.35rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.resume-pdf-source h1 + ul li {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+.resume-pdf-source h1 + ul li + li::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 0.85em;
+  margin-right: 0.65rem;
+  background: #b8b8b8;
+}
+
+.resume-pdf-source h1 + ul a {
+  text-decoration: none;
+  border-bottom: 1px solid #b8b8b8;
 }
 
 .resume-pdf-source h2 {
@@ -82,6 +116,15 @@ body.pdf-exporting .resume-pdf-source.pdf-export-content strong {
 body.pdf-exporting .resume-pdf-source.pdf-export-content a {
   color: #000 !important;
   text-decoration: underline;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content h1 + ul {
+  margin-bottom: 1.35rem !important;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content h1 + ul a {
+  text-decoration: none !important;
+  border-bottom: 1px solid #b8b8b8;
 }
 
 body.pdf-exporting .resume-pdf-source.pdf-export-content hr {

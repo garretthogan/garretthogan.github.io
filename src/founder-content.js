@@ -10,6 +10,7 @@ export const founderShared = {
   },
   footerLinks: [
     { label: 'Home', href: '/' },
+    { label: 'Garrett / Resume', href: '/portfolio/' },
     { label: 'For Founders', href: '/founders/' },
     { label: 'Fractional Product Engineer', href: '/fractional-product-engineer/' },
     { label: 'Startup MVP Engineer', href: '/startup-mvp-engineer/' },
@@ -64,7 +65,7 @@ export const foundersPage = {
     items: [
       'You already have a detailed spec and only need low-cost implementation.',
       'You want to build a large platform before testing the core workflow.',
-      'You need a full agency team immediately.',
+      'You need a large multi-disciplinary team immediately.',
       'You are not ready to make hard scope decisions.',
     ],
   },
@@ -290,7 +291,7 @@ export const mvpPage = {
       {
         question: 'Are you an agency?',
         answer:
-          'No. Ragtag Throne is my product engineering practice. The fit is closer to a senior technical product partner than a full-service agency.',
+          'Ragtag Throne is a solo-led creative technology agency. The fit is closer to a senior technical product partner than a large full-service agency team.',
       },
     ],
   },

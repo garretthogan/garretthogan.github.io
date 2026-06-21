@@ -13,7 +13,7 @@ export function renderSiteFooter() {
   footer.appendChild(
     el('p', {
       className: 'site-footer__copy',
-      text: `© ${new Date().getFullYear()} Garrett Hogan · Ragtag Throne`,
+      text: `© ${new Date().getFullYear()} Ragtag Throne · Creative technology agency led by Garrett Hogan`,
     })
   );
   return footer;

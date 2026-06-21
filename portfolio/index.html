@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Employer-focused portfolio and resume for Garrett Hogan, a senior frontend and product engineer with 10+ years building complex product interfaces, internal tools, dashboards, WebGL workflows, and creative systems."
+    />
+    <title>Garrett Hogan — Senior Software Engineer</title>
+    <link rel="canonical" href="https://ragtagthrone.com/portfolio/" />
+    <meta property="og:type" content="profile" />
+    <meta
+      property="og:title"
+      content="Garrett Hogan — Senior Frontend and Product Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio and resume for a senior frontend/product engineer focused on complex interfaces, internal tools, dashboards, WebGL workflows, and creative systems."
+    />
+    <meta property="og:url" content="https://ragtagthrone.com/portfolio/" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Garrett Hogan — Senior Frontend and Product Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Senior frontend/product engineer with 10+ years building complex interfaces, internal tools, dashboards, WebGL workflows, and creative systems."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Garrett Hogan",
+        "url": "https://ragtagthrone.com/portfolio/",
+        "jobTitle": "Senior Frontend and Product Engineer",
+        "email": "mailto:ragtagthrone@gmail.com",
+        "description": "Senior frontend and product engineer building complex product interfaces, internal tools, dashboards, WebGL workflows, and creative systems.",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Ragtag Throne",
+          "url": "https://ragtagthrone.com/"
+        },
+        "knowsAbout": [
+          "Frontend Engineering",
+          "Product Engineering",
+          "Internal Tools",
+          "Dashboards",
+          "Workflow Tools",
+          "WebGL",
+          "Three.js",
+          "Creative Systems",
+          "Data Visualization"
+        ],
+        "sameAs": [
+          "https://github.com/garretthogan",
+          "https://www.linkedin.com/in/garretthogandev/"
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/landing.css" />
+    <link rel="stylesheet" href="/src/resume-export.css" />
+    <link rel="stylesheet" href="/src/portfolio.css" />
+  </head>
+  <body>
+    <div
+      id="loading-overlay"
+      class="loading-overlay"
+      aria-live="polite"
+      aria-label="Loading"
+    >
+      <div class="loading-spinner"></div>
+    </div>
+    <div id="scene-container" class="scene-container" aria-hidden="true"></div>
+    <div
+      id="pdf-loading-overlay"
+      class="loading-overlay loading-overlay--hidden"
+      aria-live="polite"
+      aria-label="Exporting PDF"
+    >
+      <div class="loading-spinner"></div>
+    </div>
+
+    <main id="portfolio-root" class="landing"></main>
+
+    <article
+      id="resume-pdf-source"
+      class="resume-pdf-source"
+      hidden
+      aria-hidden="true"
+    ></article>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/src/portfolio-main.js"></script>
+  </body>
+</html>

@@ -5,32 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Software engineer with strong product judgment, building interactive tools for civic data, spatial workflows, and creative systems."
+      content="Ragtag Throne is a solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences."
     />
-    <title>Garrett Hogan, Ragtag Throne</title>
+    <title>Ragtag Throne — Creative Technology Agency</title>
     <link rel="canonical" href="https://ragtagthrone.com/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ragtag Throne — Creative Technology Agency" />
+    <meta
+      property="og:description"
+      content="A solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences."
+    />
+    <meta property="og:url" content="https://ragtagthrone.com/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ragtag Throne — Creative Technology Agency" />
+    <meta
+      name="twitter:description"
+      content="A solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences."
+    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Garrett Hogan",
+        "@type": "ProfessionalService",
+        "name": "Ragtag Throne",
         "url": "https://ragtagthrone.com",
-        "jobTitle": "Software Engineer",
         "email": "mailto:ragtagthrone@gmail.com",
-        "description": "Software engineer with strong product judgment, building interactive tools for civic data, spatial workflows, and creative systems.",
-        "knowsAbout": [
+        "description": "A solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences.",
+        "areaServed": "Worldwide",
+        "serviceType": [
+          "Creative Technology",
           "Product Engineering",
-          "Civic Data",
-          "Internal Tools",
-          "Spatial Workflows",
-          "Frontend Engineering",
+          "Interactive Prototyping",
+          "Workflow Tools",
           "Data Visualization",
-          "WebGL",
-          "Three.js",
-          "Creative Systems",
-          "Game Systems"
+          "Spatial Software",
+          "AI-Assisted Product Workflows"
         ],
+        "founder": {
+          "@type": "Person",
+          "name": "Garrett Hogan",
+          "jobTitle": "Founder and Principal Product Engineer",
+          "email": "mailto:ragtagthrone@gmail.com",
+          "url": "https://ragtagthrone.com/portfolio/"
+        },
         "sameAs": [
           "https://github.com/garretthogan",
           "https://www.linkedin.com/in/garretthogandev/"
@@ -45,24 +62,15 @@
     />
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/landing.css" />
-    <link rel="stylesheet" href="/src/resume-export.css" />
-    <link rel="stylesheet" href="/src/founder.css" />
   </head>
   <body>
     <div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading">
       <div class="loading-spinner"></div>
     </div>
     <div id="scene-container" class="scene-container" aria-hidden="true"></div>
-    <div id="pdf-loading-overlay" class="loading-overlay loading-overlay--hidden" aria-live="polite" aria-label="Exporting PDF">
-      <div class="loading-spinner"></div>
-    </div>
 
     <main id="landing-root" class="landing"></main>
 
-    <article id="resume-pdf-source" class="resume-pdf-source" hidden aria-hidden="true"></article>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

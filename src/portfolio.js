@@ -1,4 +1,4 @@
-import { siteContent } from './site-content.js';
+import { portfolioContent } from './portfolio-content.js';
 import { el, sectionHeading } from './dom-utils.js';
 import { renderSiteFooter } from './site-shell.js';
 
@@ -54,6 +54,19 @@ function renderLinkRow(email, links = []) {
 function renderActions(actions = []) {
   const row = el('div', { className: 'hero__actions' });
   for (const action of actions) {
+    if (action.resumeDownload) {
+      row.appendChild(
+        el('button', {
+          type: 'button',
+          className: `btn btn--${action.variant ?? 'secondary'}`,
+          'data-resume-download': '',
+          disabled: true,
+          text: action.label,
+        })
+      );
+      continue;
+    }
+
     row.appendChild(
       el('a', {
         href: action.href,
@@ -66,9 +79,9 @@ function renderActions(actions = []) {
 }
 
 function renderHero() {
-  const { hero } = siteContent;
+  const { hero } = portfolioContent;
   const section = el('section', {
-    className: 'landing-section landing-section--hero',
+    className: 'landing-section landing-section--hero portfolio-hero',
     id: 'hero',
   });
 
@@ -83,7 +96,7 @@ function renderHero() {
 
 function renderProofStrip() {
   const strip = el('div', { className: 'proof-strip panel', role: 'list' });
-  for (const item of siteContent.proofStrip) {
+  for (const item of portfolioContent.proofStrip) {
     strip.appendChild(el('span', { className: 'proof-strip__item', role: 'listitem', text: item }));
   }
   return strip;
@@ -96,25 +109,52 @@ function renderCard({ title, body }, className = 'card') {
   return item;
 }
 
-function renderServices() {
+function renderExperience() {
+  const { experience } = portfolioContent;
   const section = el('section', {
-    className: 'landing-section landing-section--services panel',
-    id: 'services',
+    className: 'landing-section landing-section--experience panel',
+    id: 'experience',
   });
-  section.appendChild(sectionHeading('Services'));
-  const grid = el('div', { className: 'card-grid card-grid--3' });
-  for (const service of siteContent.services) {
-    grid.appendChild(renderCard(service));
+  section.appendChild(sectionHeading(experience.heading));
+  section.appendChild(
+    el('h3', {
+      className: 'experience-role',
+      text: `${experience.role} · ${experience.timeframe}`,
+    })
+  );
+  section.appendChild(el('p', { className: 'section-lead', text: experience.intro }));
+  const list = el('ul', { className: 'experience-list' });
+  for (const highlight of experience.highlights) {
+    list.appendChild(el('li', { text: highlight }));
+  }
+  section.appendChild(list);
+  return section;
+}
+
+function renderSkills() {
+  const section = el('section', {
+    className: 'landing-section landing-section--skills panel',
+    id: 'skills',
+  });
+  section.appendChild(sectionHeading('Core Strengths'));
+  const grid = el('div', { className: 'card-grid card-grid--4' });
+  for (const skill of portfolioContent.skills) {
+    grid.appendChild(renderCard(skill));
   }
   section.appendChild(grid);
   return section;
 }
 
-function renderFeaturedProject(project) {
-  const item = renderCard(project, 'card card--project');
-
-  if (project.link) {
-    item.appendChild(
+function renderIndependentWork() {
+  const section = el('section', {
+    className: 'landing-section landing-section--work panel',
+    id: 'independent-work',
+  });
+  section.appendChild(sectionHeading('Independent Product Work'));
+  const grid = el('div', { className: 'card-grid card-grid--3' });
+  for (const project of portfolioContent.independentWork) {
+    const card = renderCard(project, 'card card--project');
+    card.appendChild(
       el('a', {
         href: project.link.url,
         className: 'project-link',
@@ -123,87 +163,61 @@ function renderFeaturedProject(project) {
         text: project.link.label,
       })
     );
-  }
-
-  return item;
-}
-
-function renderFeaturedWork() {
-  const section = el('section', {
-    className: 'landing-section landing-section--work panel',
-    id: 'featured-work',
-  });
-  section.appendChild(sectionHeading('Selected Work'));
-  const grid = el('div', { className: 'card-grid card-grid--3' });
-  for (const project of siteContent.featuredProjects) {
-    grid.appendChild(renderFeaturedProject(project));
+    grid.appendChild(card);
   }
   section.appendChild(grid);
   return section;
 }
 
-function renderProcess() {
-  const { process } = siteContent;
+function renderResumeSnapshot() {
+  const { resumeSnapshot } = portfolioContent;
   const section = el('section', {
-    className: 'landing-section landing-section--process panel',
-    id: 'process',
+    className: 'landing-section landing-section--resume panel',
+    id: 'resume',
   });
-  section.appendChild(sectionHeading(process.heading));
-  section.appendChild(el('p', { className: 'section-lead', text: process.intro }));
-  const grid = el('div', { className: 'card-grid card-grid--4' });
-  for (const step of process.steps) {
-    grid.appendChild(renderCard(step));
-  }
-  section.appendChild(grid);
-  return section;
-}
+  section.appendChild(sectionHeading(resumeSnapshot.heading));
+  section.appendChild(el('p', { className: 'section-lead', text: resumeSnapshot.lead }));
 
-function renderAgencyProof() {
-  const { agencyProof } = siteContent;
-  const section = el('section', {
-    className: 'landing-section landing-section--experience panel',
-    id: 'why-ragtag-throne',
-  });
-  section.appendChild(sectionHeading(agencyProof.heading));
-  section.appendChild(el('h3', { className: 'experience-role', text: agencyProof.role }));
-  section.appendChild(el('p', { className: 'section-lead', text: agencyProof.intro }));
-  const list = el('ul', { className: 'experience-list' });
-  for (const highlight of agencyProof.highlights) {
-    list.appendChild(el('li', { text: highlight }));
+  const groups = el('div', { className: 'resume-snapshot' });
+  for (const group of resumeSnapshot.groups) {
+    const block = el('div', { className: 'resume-snapshot__group' });
+    block.appendChild(el('h3', { className: 'stack-group__label', text: group.label }));
+    block.appendChild(el('p', { className: 'stack-group__tools', text: group.text }));
+    groups.appendChild(block);
   }
-  section.appendChild(list);
+  section.appendChild(groups);
+  section.appendChild(renderActions([{ label: 'Download Resume', variant: 'primary', resumeDownload: true }]));
   return section;
 }
 
 function renderContact() {
-  const { contact } = siteContent;
+  const { contact } = portfolioContent;
   const section = el('section', {
     className: 'landing-section landing-section--contact panel',
     id: 'contact',
   });
-  section.appendChild(sectionHeading('Start a Project'));
+  section.appendChild(sectionHeading(contact.heading));
   section.appendChild(el('p', { className: 'section-lead', text: contact.lead }));
   section.appendChild(renderActions(contact.actions));
   section.appendChild(renderLinkRow(contact.email, contact.links));
   return section;
 }
 
-export function renderLanding() {
-  const root = document.getElementById('landing-root');
+export function renderPortfolio() {
+  const root = document.getElementById('portfolio-root');
   if (!root) return;
 
   const fragment = document.createDocumentFragment();
   fragment.appendChild(renderHero());
   fragment.appendChild(renderProofStrip());
-  fragment.appendChild(renderServices());
-  fragment.appendChild(renderFeaturedWork());
-  fragment.appendChild(renderProcess());
-  fragment.appendChild(renderAgencyProof());
+  fragment.appendChild(renderExperience());
+  fragment.appendChild(renderSkills());
+  fragment.appendChild(renderIndependentWork());
+  fragment.appendChild(renderResumeSnapshot());
   fragment.appendChild(renderContact());
   root.appendChild(fragment);
 
-  const landing = document.getElementById('landing-root');
-  if (landing?.parentNode) {
-    landing.parentNode.appendChild(renderSiteFooter());
+  if (root.parentNode) {
+    root.parentNode.appendChild(renderSiteFooter());
   }
 }

@@ -1,7 +1,13 @@
+import './style.css';
+import './landing.css';
+import './resume-export.css';
+import './portfolio.css';
 import { initSpaceScene } from './space-scene.js';
-import { renderLanding } from './landing.js';
+import { renderPortfolio } from './portfolio.js';
+import { initResumeExport } from './resume-export.js';
 
-renderLanding();
+renderPortfolio();
+initResumeExport();
 
 function dismissLoading() {
   const loadingOverlay = document.getElementById('loading-overlay');

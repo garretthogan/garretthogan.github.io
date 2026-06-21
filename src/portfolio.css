@@ -1,0 +1,21 @@
+.portfolio-hero .hero__headline {
+  max-width: 68rem;
+}
+
+.resume-snapshot {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 64rem;
+  margin-bottom: 1.5rem;
+}
+
+.resume-snapshot__group {
+  border-top: 1px solid var(--rt-line);
+  padding-top: 1rem;
+}
+
+@media (min-width: 900px) {
+  .resume-snapshot {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

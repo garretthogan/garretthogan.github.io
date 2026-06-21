@@ -50,4 +50,4 @@ With this in place, custom 403/404 → `/index.html` error responses are only ne
 
 ## `portfolio`
 
-`https://yoursite.com/portfolio` works via `public/portfolio/index.html`, which redirects to `/`. The route alias script does not need to include it unless you want `/portfolio/` to resolve without the nested `index.html` path.
+`https://yoursite.com/portfolio` is a real Vite page at `portfolio/index.html`. Include it anywhere route aliases are synced so both `/portfolio` and `/portfolio/` resolve to the personal portfolio and resume page.
