@@ -7,6 +7,7 @@ bucket="${1:?Usage: sync-s3-routes.sh <s3-bucket> [dist-dir]}"
 dist="${2:-dist}"
 
 routes=(
+  portfolio
   founders
   fractional-product-engineer
   startup-mvp-engineer
