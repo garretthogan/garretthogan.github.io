@@ -24,7 +24,7 @@ export const siteContent = {
     email: "ragtagthrone@gmail.com",
     links: [
       {
-        label: "Garrett / Resume",
+        label: "About me",
         href: "/portfolio/",
       },
       {
@@ -142,7 +142,7 @@ export const siteContent = {
         variant: "primary",
       },
       {
-        label: "View Garrett / Resume",
+        label: "About me",
         href: "/portfolio/",
         variant: "secondary",
       },
