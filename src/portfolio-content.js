@@ -104,14 +104,14 @@ export const portfolioContent = {
 
   resumeSnapshot: {
     heading: "Resume Snapshot",
-    lead: "The downloadable resume has the formal version. This page gives the quick scan: senior frontend/product engineering, complex internal tools, creative systems, and independent product work.",
+    lead: "",
     groups: [
       {
         label: "Core Stack",
         text: "JavaScript, React, Vue, Angular, Vite, React Router, Three.js, WebGL, Unity, Unreal Engine 5, GitHub, Vercel, Cursor, Figma, Splunk, Okta.",
       },
       {
-        label: "Best Fit",
+        label: "Ideal Roles",
         text: "Senior frontend, product engineering, internal tools, dashboards, creative technology, spatial workflows, WebGL interfaces, and AI-assisted product tooling.",
       },
       {

@@ -176,7 +176,9 @@ function renderResumeSnapshot() {
     id: 'resume',
   });
   section.appendChild(sectionHeading(resumeSnapshot.heading));
-  section.appendChild(el('p', { className: 'section-lead', text: resumeSnapshot.lead }));
+  if (resumeSnapshot.lead) {
+    section.appendChild(el('p', { className: 'section-lead', text: resumeSnapshot.lead }));
+  }
 
   const groups = el('div', { className: 'resume-snapshot' });
   for (const group of resumeSnapshot.groups) {
