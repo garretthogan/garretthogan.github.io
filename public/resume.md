@@ -20,10 +20,10 @@ Passionate software engineer and problem solver with more than 10 years of exper
 
 In my time at Nike I led front end work across Nike internal tools for product launch operations, digital commerce visibility, creative workflows, WebGL product visualization, and AI-assisted design prototyping.
 
-- I delivered and maintained a dashboard for **SNKRS web** launch operations, supporting product releases through feature work, planning, bug fixes, and onsite launch support.
-- I helped create a reusable React component library for Nike internal tools, reducing duplicated UI work and improving consistency across dozens of teams.
-- I built real time commerce dashboards for checkout, inventory allocation, payment failures, insufficient funds, and transaction state visibility.
-- I improved creative production and WebGL tooling for Nike design teams, including color/material workflows, rendering fixes, Angular support, custom shader logic, and AI prototyping.
+- Delivered and maintained a dashboard for **SNKRS web** launch operations, supporting product releases through feature work, planning, bug fixes, and onsite launch support.
+- Helped create a reusable React component library for Nike internal tools, reducing duplicated UI work and improving consistency across dozens of teams.
+- Built real time commerce dashboards for checkout, inventory allocation, payment failures, insufficient funds, and transaction state visibility.
+- Improved creative production and WebGL tooling for Nike design teams, including color/material workflows, rendering fixes, Angular support, custom shader logic, and AI prototyping.
 
 ## Independent Work
 
