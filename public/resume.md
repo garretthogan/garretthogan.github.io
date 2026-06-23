@@ -1,53 +1,46 @@
 # Garrett Hogan
 
-- [ragtagthrone@gmail.com](mailto:ragtagthrone@gmail.com)
-- [GitHub](https://github.com/garretthogan)
-- [LinkedIn](https://www.linkedin.com/in/garretthogandev/)
-- [Website](https://www.ragtagthrone.com/)
+www.ragtagthrone.com
 
-## Professional Experience
+ragtagthrone@gmail.com | github.com/garretthogan | linkedin.com/in/garretthogandev
 
-### Senior Software Engineer, Nike  
+Passionate software engineer and problem solver with more than 10 years of experience building internal tools, dashboards, workflow systems, creative design software, and browser based interactive apps. Strong front end background across JavaScript, React, Vue, Angular, Three.js, and WebGL with experience planning and shipping ambiguous products.
+
+## Skills
+
+**Front End:** JavaScript/TypeScript, React, Vue, Angular, Vite, Nextjs  
+**Interactive / 3D:** Three.js, WebGL, Unity, Unreal Engine  
+**Collaboration:** Jira, Confluence, GitHub, Perforce, Google Analytics, Splunk, Figma, Canva, sprint planning, code review, production support
+
+## Experience
+
+### Senior Software Engineer, Nike
+
 **2015–2026**
 
-Senior front-end engineer and technical lead building internal tools for launch operations, digital commerce visibility, creative workflows, WebGL product visualization, and AI-assisted design. Partnered with product managers, designers, engineers, creative directors, and operations teams to turn ambiguous workflow problems into production software used across Nike internal teams.
+In my time at Nike I led front end work across Nike internal tools for product launch operations, digital commerce visibility, creative workflows, WebGL product visualization, and AI-assisted design prototyping.
 
-- Delivered features for an internal **SNKRS Web launch operations dashboard** used to manage high-heat product releases. Estimated implementation complexity, groomed stories, fixed production bugs, and provided onsite support during critical launch windows.
+- I delivered and maintained a dashboard for **SNKRS web** launch operations, supporting product releases through feature work, planning, bug fixes, and onsite launch support.
+- I helped create a reusable React component library for Nike internal tools, reducing duplicated UI work and improving consistency across dozens of teams.
+- I built real time commerce dashboards for checkout, inventory allocation, payment failures, insufficient funds, and transaction state visibility.
+- I improved creative production and WebGL tooling for Nike design teams, including color/material workflows, rendering fixes, Angular support, custom shader logic, and AI prototyping.
 
-- Helped create a reusable internal component library for Nike dashboard products, reducing the cost of building new operational tools. Interviewed stakeholders, identified repeated dashboard pain points, collaborated with maintainers on MVP scope and roadmap planning, and shipped reusable UI patterns.
-
-- Built a real-time commerce operations dashboard for tracking purchases from checkout through inventory allocation, payment failures, insufficient funds, and other transaction states, giving teams clearer visibility into where purchase flows succeeded or failed.
-
-- Improved a WebGL-based footwear refresh tool that allowed teams to quickly apply new colors and materials to existing shoe models. Optimized rendering, fixed bugs, and delivered features in a legacy Angular application with custom shader logic.
-
-- Built and maintained a Vue-based color and material browsing tool for Nike designers. Supported palette creation workflows that connected to Illustrator plugins, helping designers move colors and materials into creative production faster.
-
-- Worked directly with a creative director to productize generative AI tools for product ideation and marketing concept development in the browser, integrating workflows around Gemini, Nano Banana, and internal creative experimentation.
-
-<div class="pdf-page-break"></div>
-
-## Core Skills
-
-I build product-focused software for internal tools, creative systems, dashboards, spatial workflows, and interactive prototypes. My work spans product launch operations, inventory visibility, digital commerce tracking, WebGL tools, civic data products, and game systems. I work primarily with JavaScript, React, Vue, Angular, Vite, Three.js, WebGL, Unity, and Unreal Engine, with a focus on interfaces that carry the product experience through filtering, dashboards, spatial editing, real-time feedback, and state-driven interactions.
-
-At Nike, I led technical work across production applications, legacy modernization, reusable component systems, and cross-functional product teams. I reviewed code, improved performance, upgraded outdated Node and Vue stacks, removed deprecated dependencies, supported users directly, and helped guide practical architecture decisions. My leadership style is hands-on and focused on clarifying workflows, reducing complexity, improving the codebase, and keeping the product moving.
-
-## Independent Product and Creative Systems Work
+## Independent Work
 
 ### Wardboard / Ward 311
 
 https://wardboard.vercel.app/
 
-Built a civic data dashboard for exploring Chicago 311 service requests by ward, making public service request data easier to understand at the neighborhood level. Designed fast filtering, readable summaries, and simple visual feedback to help residents, organizers, and local teams identify local patterns and recurring issues.
+Civic data dashboard for exploring Chicago 311 service requests by ward, with filtering and summaries for neighborhood service patterns.
 
 ### Flipspace
 
 https://flipspace.app
 
-Built a browser based commercial space planning tool for small offices, clinics, dental practices, and service businesses. Designed an editor style interface for sketching layouts, evaluating spatial fit, and reasoning through lease or buildout decisions before engaging architects, contractors, or landlords.
+Browser-based commercial space planning tool for small offices, clinics, dental practices, and service businesses evaluating layout fit before lease or buildout decisions.
 
 ### Deck Dynasty
 
 https://deck-dynasty.vercel.app/
 
-Built a football roguelike card battler that compresses red zone strategy into a fast, turn based system of matchups, boosts, risks, and scoring decisions. Developed the playable browser prototype, including the state driven game loop, card resolution rules, opponent behavior, onboarding, and progression structure.
+Playable football roguelike card battler prototype with turn-based red zone strategy, card resolution, opponent behavior, onboarding, and progression.

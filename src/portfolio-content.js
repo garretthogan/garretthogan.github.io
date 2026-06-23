@@ -132,7 +132,7 @@ export const portfolioContent = {
         resumeDownload: true,
       },
       {
-        label: "Email Garrett",
+        label: "Email me",
         href: "mailto:ragtagthrone@gmail.com?subject=Senior%20engineering%20role",
         variant: "secondary",
       },

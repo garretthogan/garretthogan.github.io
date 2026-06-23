@@ -16,6 +16,8 @@ body.pdf-exporting .resume-pdf-source.pdf-export-content {
   box-sizing: border-box;
   z-index: 20;
   margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.42;
 }
 
 .resume-pdf-source h1 {
@@ -100,7 +102,7 @@ body.pdf-exporting .resume-pdf-source.pdf-export-content {
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  padding: 0.5rem 0.75rem !important;
+  padding: 0.35rem 0.6rem !important;
 }
 
 body.pdf-exporting .resume-pdf-source.pdf-export-content h1,
@@ -113,13 +115,46 @@ body.pdf-exporting .resume-pdf-source.pdf-export-content strong {
   color: #000 !important;
 }
 
-body.pdf-exporting .resume-pdf-source.pdf-export-content a {
-  color: #000 !important;
-  text-decoration: underline;
+body.pdf-exporting .resume-pdf-source.pdf-export-content h1 {
+  font-size: 1.45rem;
+  margin-bottom: 0.35rem;
 }
 
 body.pdf-exporting .resume-pdf-source.pdf-export-content h1 + ul {
-  margin-bottom: 1.35rem !important;
+  font-size: 0.76rem;
+  line-height: 1.25;
+  margin-bottom: 0.9rem !important;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content h2 {
+  font-size: 1.06rem;
+  margin: 1.1rem 0 0.35rem;
+  padding-bottom: 0.15rem;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content h3 {
+  font-size: 0.92rem;
+  margin: 0.85rem 0 0.25rem;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content p {
+  margin: 0.3rem 0;
+  line-height: 1.38;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content ul {
+  margin: 0.3rem 0;
+  padding-left: 1.05rem;
+  line-height: 1.35;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content li {
+  margin: 0.15rem 0;
+}
+
+body.pdf-exporting .resume-pdf-source.pdf-export-content a {
+  color: #000 !important;
+  text-decoration: underline;
 }
 
 body.pdf-exporting .resume-pdf-source.pdf-export-content h1 + ul a {
