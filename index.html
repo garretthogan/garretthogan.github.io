@@ -5,72 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Ragtag Throne is a solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences."
+      content="Garrett Hogan is a senior frontend and product engineer building interface-heavy software, workflow tools, dashboards, WebGL experiences, and creative systems."
     />
-    <title>Ragtag Throne — Creative Technology Agency</title>
+    <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151513" media="(prefers-color-scheme: dark)" />
+    <title>Garrett Hogan — Senior Frontend and Product Engineer</title>
     <link rel="canonical" href="https://ragtagthrone.com/" />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ragtag Throne — Creative Technology Agency" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Garrett Hogan — Senior Frontend and Product Engineer" />
     <meta
       property="og:description"
-      content="A solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences."
+      content="Senior frontend and product engineer focused on interface-heavy software, workflow tools, dashboards, WebGL experiences, and creative systems."
     />
     <meta property="og:url" content="https://ragtagthrone.com/" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ragtag Throne — Creative Technology Agency" />
+    <meta name="twitter:title" content="Garrett Hogan — Senior Frontend and Product Engineer" />
     <meta
       name="twitter:description"
-      content="A solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences."
+      content="Senior frontend and product engineer focused on interface-heavy software, workflow tools, dashboards, WebGL experiences, and creative systems."
     />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Ragtag Throne",
-        "url": "https://ragtagthrone.com",
+        "@type": "Person",
+        "name": "Garrett Hogan",
+        "url": "https://ragtagthrone.com/",
+        "jobTitle": "Senior Frontend Engineer",
         "email": "mailto:ragtagthrone@gmail.com",
-        "description": "A solo-led creative technology agency for interactive products, prototypes, workflow tools, dashboards, spatial systems, and AI-assisted product experiences.",
-        "areaServed": "Worldwide",
-        "serviceType": [
-          "Creative Technology",
-          "Product Engineering",
-          "Interactive Prototyping",
-          "Workflow Tools",
-          "Data Visualization",
-          "Spatial Software",
-          "AI-Assisted Product Workflows"
-        ],
-        "founder": {
-          "@type": "Person",
-          "name": "Garrett Hogan",
-          "jobTitle": "Founder and Principal Product Engineer",
-          "email": "mailto:ragtagthrone@gmail.com",
-          "url": "https://ragtagthrone.com/portfolio/"
+        "description": "Senior frontend and product engineer building interface-heavy software, workflow tools, dashboards, WebGL experiences, and creative systems.",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Havoc"
         },
+        "knowsAbout": [
+          "Frontend Engineering",
+          "Product Engineering",
+          "Internal Tools",
+          "Dashboards",
+          "Workflow Tools",
+          "WebGL",
+          "Three.js",
+          "Creative Systems",
+          "Data Visualization"
+        ],
         "sameAs": [
           "https://github.com/garretthogan",
           "https://www.linkedin.com/in/garretthogandev/"
         ]
       }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/src/style.css" />
-    <link rel="stylesheet" href="/src/landing.css" />
   </head>
   <body>
-    <div id="loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading">
-      <div class="loading-spinner"></div>
-    </div>
-    <div id="scene-container" class="scene-container" aria-hidden="true"></div>
+    <a
+      class="portfolio-mark"
+      href="https://github.com/garretthogan"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Garrett Hogan on GitHub"
+    >
+      <img src="/favicon.svg" alt="" width="40" height="40" />
+    </a>
 
-    <main id="landing-root" class="landing"></main>
+    <main id="portfolio-root" class="portfolio-shell"></main>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/portfolio-main.js"></script>
   </body>
 </html>

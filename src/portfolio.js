@@ -1,208 +1,122 @@
 import { portfolioContent } from './portfolio-content.js';
-import { el, sectionHeading } from './dom-utils.js';
-import { renderSiteFooter } from './site-shell.js';
+import { el } from './dom-utils.js';
 
-function createCopyButton(email) {
-  const btn = el('button', {
-    type: 'button',
-    className: 'btn btn--ghost btn--copy',
-    text: 'Copy',
-    'aria-label': `Copy ${email}`,
-  });
-  btn.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(email);
-      const prev = btn.textContent;
-      btn.textContent = 'Copied';
-      setTimeout(() => {
-        btn.textContent = prev;
-      }, 2000);
-    } catch {
-      btn.textContent = 'Failed';
-      setTimeout(() => {
-        btn.textContent = 'Copy';
-      }, 2000);
-    }
-  });
-  return btn;
-}
+function renderIdentity() {
+  const { profile } = portfolioContent;
+  const section = el('section', { className: 'profile', 'aria-labelledby': 'portfolio-title' });
 
-function renderLinkRow(email, links = []) {
-  const row = el('div', { className: 'contact-row' });
-  const emailWrap = el('span', { className: 'contact-row__email' });
-  emailWrap.appendChild(
-    el('a', { href: `mailto:${email}`, className: 'contact-link', text: email })
+  section.appendChild(el('p', { className: 'profile__eyebrow', text: profile.eyebrow }));
+  section.appendChild(
+    el('h1', { id: 'portfolio-title', className: 'profile__name', text: profile.headline })
   );
-  emailWrap.appendChild(createCopyButton(email));
-  row.appendChild(emailWrap);
-
-  for (const link of links.filter(Boolean)) {
-    row.appendChild(
-      el('a', {
-        href: link.url ?? link.href,
-        className: 'contact-link',
-        target: link.url ? '_blank' : undefined,
-        rel: link.url ? 'noopener noreferrer' : undefined,
-        text: link.label,
-      })
-    );
-  }
-
-  return row;
-}
-
-function renderActions(actions = []) {
-  const row = el('div', { className: 'hero__actions' });
-  for (const action of actions) {
-    if (action.resumeDownload) {
-      row.appendChild(
-        el('button', {
-          type: 'button',
-          className: `btn btn--${action.variant ?? 'secondary'}`,
-          'data-resume-download': '',
-          disabled: true,
-          text: action.label,
-        })
-      );
-      continue;
-    }
-
-    row.appendChild(
-      el('a', {
-        href: action.href,
-        className: `btn btn--${action.variant ?? 'secondary'}`,
-        text: action.label,
-      })
-    );
-  }
-  return row;
-}
-
-function renderHero() {
-  const { hero } = portfolioContent;
-  const section = el('section', {
-    className: 'landing-section landing-section--hero portfolio-hero',
-    id: 'hero',
-  });
-
-  section.appendChild(el('p', { className: 'hero__eyebrow', text: hero.eyebrow }));
-  section.appendChild(el('h1', { className: 'hero__headline', text: hero.headline }));
-  section.appendChild(el('p', { className: 'hero__lead', text: hero.lead }));
-  section.appendChild(renderActions(hero.actions));
-  section.appendChild(renderLinkRow(hero.email, hero.links));
+  section.appendChild(el('p', { className: 'profile__credential', text: profile.credential }));
+  section.appendChild(el('p', { className: 'profile__intro', text: profile.intro }));
 
   return section;
 }
 
-function renderProofStrip() {
-  const strip = el('div', { className: 'proof-strip panel', role: 'list' });
-  for (const item of portfolioContent.proofStrip) {
-    strip.appendChild(el('span', { className: 'proof-strip__item', role: 'listitem', text: item }));
+function renderPrimaryLinks() {
+  const nav = el('nav', { className: 'primary-nav', 'aria-label': 'Portfolio links' });
+  const list = el('ul', { className: 'primary-nav__list' });
+
+  for (const link of portfolioContent.primaryLinks) {
+    const attrs = {
+      href: link.href,
+      className: 'primary-nav__link',
+      text: link.label,
+    };
+
+    if (link.download) attrs.download = link.download;
+
+    list.appendChild(el('li', {}, [el('a', attrs)]));
   }
-  return strip;
+
+  nav.appendChild(list);
+  return nav;
 }
 
-function renderCard({ title, body }, className = 'card') {
-  const item = el('article', { className });
-  item.appendChild(el('h3', { className: 'card__title', text: title }));
-  item.appendChild(el('p', { className: 'card__body', text: body }));
-  return item;
+function renderSelectedWork() {
+  const section = el('section', {
+    id: 'work',
+    className: 'portfolio-section work',
+    'aria-labelledby': 'work-heading',
+  });
+  section.appendChild(
+    el('h2', { id: 'work-heading', className: 'portfolio-section__heading', text: 'Selected work' })
+  );
+
+  const list = el('ol', { className: 'work-list' });
+  for (const project of portfolioContent.selectedWork) {
+    const link = el('a', {
+      href: project.href,
+      className: 'work-item__link',
+      'aria-label': `${project.title}: ${project.description}`,
+    });
+    link.appendChild(el('span', { className: 'work-item__number', text: project.number }));
+
+    const copy = el('span', { className: 'work-item__copy' });
+    copy.appendChild(el('span', { className: 'work-item__title', text: project.title }));
+    copy.appendChild(el('span', { className: 'work-item__description', text: project.description }));
+    link.appendChild(copy);
+    link.appendChild(el('span', { className: 'work-item__arrow', 'aria-hidden': 'true', text: '↗' }));
+
+    list.appendChild(el('li', { className: 'work-item' }, [link]));
+  }
+
+  section.appendChild(list);
+  return section;
 }
 
 function renderExperience() {
   const { experience } = portfolioContent;
   const section = el('section', {
-    className: 'landing-section landing-section--experience panel',
     id: 'experience',
+    className: 'portfolio-section experience',
+    'aria-labelledby': 'experience-heading',
   });
-  section.appendChild(sectionHeading(experience.heading));
   section.appendChild(
-    el('h3', {
-      className: 'experience-role',
-      text: `${experience.role} · ${experience.timeframe}`,
+    el('h2', {
+      id: 'experience-heading',
+      className: 'portfolio-section__heading',
+      text: experience.heading,
     })
   );
-  section.appendChild(el('p', { className: 'section-lead', text: experience.intro }));
-  const list = el('ul', { className: 'experience-list' });
-  for (const highlight of experience.highlights) {
-    list.appendChild(el('li', { text: highlight }));
+
+  const list = el('div', { className: 'experience__list' });
+  for (const item of experience.roles) {
+    const entry = el('article', { className: 'experience__entry' });
+    const role = el('div', { className: 'experience__role' });
+    role.appendChild(el('h3', { text: item.role }));
+    role.appendChild(el('p', { text: item.timeframe }));
+    entry.appendChild(role);
+
+    if (item.summary) {
+      entry.appendChild(el('p', { className: 'experience__summary', text: item.summary }));
+    }
+
+    if (item.stack) {
+      entry.appendChild(el('p', { className: 'experience__stack', text: item.stack }));
+    }
+
+    list.appendChild(entry);
   }
   section.appendChild(list);
+
   return section;
 }
 
-function renderSkills() {
-  const section = el('section', {
-    className: 'landing-section landing-section--skills panel',
-    id: 'skills',
-  });
-  section.appendChild(sectionHeading('Core Strengths'));
-  const grid = el('div', { className: 'card-grid card-grid--4' });
-  for (const skill of portfolioContent.skills) {
-    grid.appendChild(renderCard(skill));
-  }
-  section.appendChild(grid);
-  return section;
-}
+function renderPortfolioFooter() {
+  const { footer } = portfolioContent;
+  const footerElement = el('footer', { className: 'portfolio-footer' });
+  footerElement.appendChild(
+    el('p', { className: 'portfolio-footer__availability', text: footer.availability })
+  );
 
-function renderIndependentWork() {
-  const section = el('section', {
-    className: 'landing-section landing-section--work panel',
-    id: 'independent-work',
-  });
-  section.appendChild(sectionHeading('Independent Product Work'));
-  const grid = el('div', { className: 'card-grid card-grid--3' });
-  for (const project of portfolioContent.independentWork) {
-    const card = renderCard(project, 'card card--project');
-    card.appendChild(
-      el('a', {
-        href: project.link.url,
-        className: 'project-link',
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        text: project.link.label,
-      })
-    );
-    grid.appendChild(card);
-  }
-  section.appendChild(grid);
-  return section;
-}
+  const meta = el('p', { className: 'portfolio-footer__meta' });
+  meta.textContent = `© ${new Date().getFullYear()} Garrett Hogan · ${footer.studioLabel}`;
+  footerElement.appendChild(meta);
 
-function renderResumeSnapshot() {
-  const { resumeSnapshot } = portfolioContent;
-  const section = el('section', {
-    className: 'landing-section landing-section--resume panel',
-    id: 'resume',
-  });
-  section.appendChild(sectionHeading(resumeSnapshot.heading));
-  if (resumeSnapshot.lead) {
-    section.appendChild(el('p', { className: 'section-lead', text: resumeSnapshot.lead }));
-  }
-
-  const groups = el('div', { className: 'resume-snapshot' });
-  for (const group of resumeSnapshot.groups) {
-    const block = el('div', { className: 'resume-snapshot__group' });
-    block.appendChild(el('h3', { className: 'stack-group__label', text: group.label }));
-    block.appendChild(el('p', { className: 'stack-group__tools', text: group.text }));
-    groups.appendChild(block);
-  }
-  section.appendChild(groups);
-  section.appendChild(renderActions([{ label: 'Download Resume', variant: 'primary', resumeDownload: true }]));
-  return section;
-}
-
-function renderContact() {
-  const { contact } = portfolioContent;
-  const section = el('section', {
-    className: 'landing-section landing-section--contact panel',
-    id: 'contact',
-  });
-  section.appendChild(sectionHeading(contact.heading));
-  section.appendChild(el('p', { className: 'section-lead', text: contact.lead }));
-  section.appendChild(renderActions(contact.actions));
-  section.appendChild(renderLinkRow(contact.email, contact.links));
-  return section;
+  return footerElement;
 }
 
 export function renderPortfolio() {
@@ -210,16 +124,10 @@ export function renderPortfolio() {
   if (!root) return;
 
   const fragment = document.createDocumentFragment();
-  fragment.appendChild(renderHero());
-  fragment.appendChild(renderProofStrip());
+  fragment.appendChild(renderIdentity());
+  fragment.appendChild(renderPrimaryLinks());
+  fragment.appendChild(renderSelectedWork());
   fragment.appendChild(renderExperience());
-  fragment.appendChild(renderSkills());
-  fragment.appendChild(renderIndependentWork());
-  fragment.appendChild(renderResumeSnapshot());
-  fragment.appendChild(renderContact());
-  root.appendChild(fragment);
-
-  if (root.parentNode) {
-    root.parentNode.appendChild(renderSiteFooter());
-  }
+  fragment.appendChild(renderPortfolioFooter());
+  root.replaceChildren(fragment);
 }

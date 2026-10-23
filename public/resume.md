@@ -14,6 +14,14 @@ Passionate software engineer and problem solver with more than 10 years of exper
 
 ## Experience
 
+### Senior Frontend Engineer, Havoc
+
+**Aug 2026-Present**
+
+I work on the frontend of a command-and-control system for managing autonomous vehicles.
+
+- Technology stack: React, TypeScript, Node.js, Mapbox, and MapLibre.
+
 ### Senior Software Engineer, Nike
 
 **2015–2026**
